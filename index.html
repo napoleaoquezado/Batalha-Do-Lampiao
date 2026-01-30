@@ -74,132 +74,6 @@ body {
     100% { box-shadow: 0 0 5px var(--primary-color); }
 }
 
-/* Tela de Login */
-.login-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.8s ease;
-}
-
-.login-container {
-    background-color: rgba(26, 26, 26, 0.9);
-    padding: 3rem;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    animation: slideInUp 0.8s ease;
-}
-
-.logo-grande {
-    margin-bottom: 2rem;
-}
-
-.logo-grande h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.logo-grande p {
-    color: var(--text-secondary);
-    font-size: 1rem;
-}
-
-.login-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.login-btn {
-    padding: 1.5rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.login-btn i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.login-btn span {
-    font-size: 1.1rem;
-}
-
-.login-btn small {
-    font-size: 0.8rem;
-    font-weight: normal;
-    margin-top: 0.3rem;
-    opacity: 0.8;
-}
-
-.user-btn {
-    background-color: var(--bg-lighter);
-    color: var(--text-color);
-    border: 2px solid var(--primary-color);
-}
-
-.user-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    transform: translateY(-5px);
-    animation: pulse 1s infinite;
-}
-.admin-btn {
-    background-color: #ff3333;
-    border-radius: 5px;
-    color: var(--text-color);
-    border: 5px solid #ff3333;
-    cursor: pointer;
-
-    transition: 
-        box-shadow 0.3s ease,
-        transform 0.2s ease;
-}
-
-.admin-btn:hover {
-    box-shadow:
-        0 0 4px rgba(255, 51, 51, 0.7),
-        0 0 8px rgba(255, 51, 51, 0.5),
-        0 0 16px rgba(255, 51, 51, 0.3);
-    
-    transform: scale(1.08);
-}
-
-
-.login-footer {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
 /* Sistema Principal */
 .main-system {
     min-height: 100vh;
@@ -797,103 +671,953 @@ body {
     object-fit: cover;
 }
 
-/* Beats Page */
-.beat-filters-admin {
-    background-color: var(--bg-light);
-    border-radius: 10px;
+/* Beats Page - ESTILOS ATUALIZADOS */
+.beat-filters-card {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
+    border-radius: 15px;
     padding: 1.5rem;
     margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    animation: slideInUp 0.5s ease;
 }
 
-.special-filter {
+.filters-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-stats {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.stat-item i {
+    color: var(--primary-color);
+}
+
+.stat-item span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Controles de Visualização */
+.view-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-btn {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.view-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.view-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.view-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-right: 1rem;
+}
+
+/* Botão de Busca por Batalha */
+.search-battle-btn {
+    background: linear-gradient(135deg, var(--info-color) 0%, #1a8cff 100%);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.search-battle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
+}
+
+/* Dropdowns e Inputs Estilizados */
+.filter-select.stylish, .filter-input.stylish {
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.filter-select.stylish {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ff6b00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+}
+
+.filter-select.stylish:focus, .filter-input.stylish:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+}
+
+.filter-select.stylish:hover, .filter-input.stylish:hover {
+    border-color: var(--primary-light);
+}
+
+.filter-select.stylish option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+}
+
+/* Botões de Filtro */
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.filter-btn.apply {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-color);
+}
+
+.filter-btn.clear {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+}
+
+.filter-btn.apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+}
+
+.filter-btn.clear:hover {
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
+}
+
+/* Botão Adicionar Beat */
+.add-beat-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+.add-beat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+    animation: pulse 1s infinite;
+}
+
+/* Visualização em Grade */
+.beats-grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.beats-list-view {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
-.filter-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.beat-filters {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
-
-.beats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
+/* Cards de Beat são clicáveis em qualquer lugar */
 .beat-card {
-    background-color: var(--bg-light);
-    border-radius: 10px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
 }
 
 .beat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Classe para áreas não clicáveis dentro do card */
+.non-clickable {
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 .beat-card-header {
     padding: 1.5rem;
-    background-color: var(--bg-lighter);
+    background-color: rgba(10, 10, 10, 0.7);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.beat-card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(255, 107, 0, 0.1) 100%);
 }
 
 .beat-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.beat-producer {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.beat-style-tag {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
+    z-index: 1;
+}
+
+/* Player de Áudio Customizado */
+.beat-player-custom {
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+}
+
+.player-container {
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.play-pause-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border: none;
+    color: var(--bg-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-pause-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-pause-btn:hover::before {
+    opacity: 1;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+}
+
+.play-pause-btn.playing {
+    animation: pulse 2s infinite;
+}
+
+.player-info {
+    flex: 1;
+}
+
+.player-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* Progress Bar Customizada */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background-color: var(--bg-color);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Volume Control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.volume-icon {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.volume-slider {
+    flex: 1;
+    height: 4px;
+    background-color: var(--bg-color);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-level {
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    border-radius: 2px;
+}
+
+/* Info do Beat */
+.beat-info-details {
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.beat-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.beat-info-label {
+    color: var(--text-secondary);
+}
+
+.beat-info-value {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Footer do Card - Atualizado */
+.beat-card-footer {
+    padding: 1rem 1.5rem;
+    background-color: rgba(10, 10, 10, 0.8);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.beat-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.beat-action-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.beat-action-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+}
+
+.beat-downloads {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-light);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--primary-color);
+    animation: slideInUp 0.3s ease;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+.form-help {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-lighter);
+}
+
+/* Botões de ação */
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.edit-btn:hover {
+    color: var(--info-color);
+    background-color: rgba(51, 153, 255, 0.1);
+}
+
+.delete-btn:hover {
+    color: var(--danger-color);
+    background-color: rgba(255, 51, 51, 0.1);
+}
+
+.featured-btn:hover {
+    color: var(--warning-color);
+    background-color: rgba(255, 204, 0, 0.1);
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    color: var(--danger-color);
+    background-color: rgba(255, 51, 51, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Indicador de Beat Tocando */
+.beat-playing-indicator {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation: beat-pulse 1s infinite;
+    z-index: 2;
+}
+
+@keyframes beat-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 107, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+    }
+}
+
+/* Visualização em Lista - ATUALIZADA */
+.beat-list-item {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.beat-list-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.beat-list-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.beat-list-player {
+    width: 300px;
+}
+
+/* Container para botões na visualização de lista */
+.beat-list-actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+}
+
+.beat-list-download-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    z-index: 10;
+}
+
+.beat-list-download-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+}
+
+.beat-list-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.beat-list-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.beat-list-stat i {
+    color: var(--primary-color);
+}
+
+/* Modal de Detalhes do Beat */
+#beatDetailsModal .modal-content {
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.beat-details-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.beat-details-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.beat-details-title h3 {
+    font-size: 1.8rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
-.beat-producer {
+.beat-details-title p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1rem;
+}
+
+.beat-details-player {
+    margin: 2rem 0;
+}
+
+.battles-history {
+    margin-top: 2rem;
+}
+
+.battles-history h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.beat-card-body {
-    padding: 1.5rem;
+.battles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.beat-style {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
+.battle-item {
+    background-color: var(--bg-lighter);
+    border-radius: 10px;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.battle-item:hover {
+    border-color: var(--primary-color);
+}
+
+.battle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.battle-mcs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.battle-mc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.battle-mc-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
     background-color: var(--bg-color);
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
 }
 
-.beat-player {
+.battle-mc-avatar img {
     width: 100%;
-    margin-bottom: 1rem;
+    height: 100%;
+    object-fit: cover;
 }
 
-.beat-info {
+.battle-info {
+    display: flex;
+    gap: 1.5rem;
     font-size: 0.9rem;
+}
+
+.battle-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     color: var(--text-secondary);
 }
 
-.beat-card-footer {
-    padding: 1rem 1.5rem;
-    background-color: var(--bg-lighter);
-    border-top: 1px solid var(--border-color);
+.battle-info-item i {
+    color: var(--primary-color);
+}
+
+/* Botão para adicionar batalha (admin) */
+.add-battle-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.add-battle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
 }
 
 /* Mídia Page */
@@ -1190,157 +1914,53 @@ body {
     color: var(--danger-color);
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease;
+/* Admin Page Link no Footer */
+.admin-page-link {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.modal-content {
-    background-color: var(--bg-light);
-    border-radius: 15px;
-    padding: 2rem;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: var(--shadow);
-    border: 2px solid var(--primary-color);
-    animation: slideInUp 0.3s ease;
-}
-
-.modal-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.modal-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.form-group input, .form-group textarea, .form-group select {
-    width: 100%;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.8rem 1rem;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.form-row {
-    display: flex;
-    gap: 1rem;
-}
-
-.form-row .form-group {
-    flex: 1;
-}
-
-.checkbox-label {
-    display: flex;
+.admin-page-link a {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    cursor: pointer;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition);
+    background-color: rgba(255, 107, 0, 0.1);
 }
 
-.checkbox-label input {
-    width: auto;
-}
-
-.form-help {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-top: 0.5rem;
-}
-
-.form-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.btn-primary {
+.admin-page-link a:hover {
     background-color: var(--primary-color);
     color: var(--bg-color);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-dark);
+/* Estilo para quando estiver no modo admin */
+.modo-admin .logo {
+    position: relative;
 }
 
-.btn-secondary {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
+.modo-admin .logo::after {
+    content: "MODO ADMIN";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--danger-color);
+    color: white;
+    font-size: 0.6rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
 }
 
-.btn-secondary:hover {
-    background-color: var(--bg-lighter);
-}
 
-/* Botões de ação */
-.action-btn {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: var(--transition);
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.edit-btn:hover {
-    color: var(--info-color);
-    background-color: rgba(51, 153, 255, 0.1);
-}
-
-.delete-btn:hover {
-    color: var(--danger-color);
-    background-color: rgba(255, 51, 51, 0.1);
-}
-
-.featured-btn:hover {
-    color: var(--warning-color);
-    background-color: rgba(255, 204, 0, 0.1);
+#loguinho {
+      height: clamp(80px, 10vw, 110px);
+  width: auto;
 }
 
 /* Responsividade */
@@ -1360,17 +1980,31 @@ body {
     .about-section {
         grid-template-columns: 1fr;
     }
+    
+    .beat-list-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .beat-list-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .beat-list-player {
+        width: 100%;
+    }
+    
+    .beat-list-actions-container {
+        position: static;
+        flex-direction: row;
+        margin-top: 1rem;
+        justify-content: flex-end;
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
-    .login-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .logo-grande h1 {
-        font-size: 2rem;
-    }
-    
     .nav-container {
         flex-wrap: wrap;
     }
@@ -1434,6 +2068,31 @@ body {
     .footer-logo {
         justify-content: center;
     }
+    
+    .beats-grid-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .view-controls {
+        margin-left: 0;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    .beat-details-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .battle-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .battle-info {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1445,7 +2104,7 @@ body {
         font-size: 1.5rem;
     }
     
-    .mc-grid, .beats-grid, .videos-grid, .help-options {
+    .mc-grid, .beats-grid-view, .videos-grid, .help-options {
         grid-template-columns: 1fr;
     }
     
@@ -1461,1055 +2120,22 @@ body {
     .modal-content {
         padding: 1.5rem;
     }
-}
-
-/* Admin Page Link no Footer */
-.admin-page-link {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.admin-page-link a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: var(--transition);
-    background-color: rgba(255, 107, 0, 0.1);
-}
-
-.admin-page-link a:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-}
-
-/* Estilo para quando estiver no modo admin */
-.modo-admin .logo {
-    position: relative;
-}
-
-.modo-admin .logo::after {
-    content: "MODO ADMIN";
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: var(--danger-color);
-    color: white;
-    font-size: 0.6rem;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-weight: bold;
-}
-
-
-#loguinho {
-      height: clamp(80px, 10vw, 110px);
-  width: auto;
-}
-
-
-
-
-/* ===== ESTILOS PARA BEATS ===== */
-
-/* Cartão de Filtros */
-.beat-filters-card {
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow);
-    animation: slideInUp 0.5s ease;
-}
-
-.filters-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.filter-stats {
-    display: flex;
-    gap: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.stat-item i {
-    color: var(--primary-color);
-}
-
-.stat-item span {
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-/* Filtros Especiais Admin */
-.special-filter-card {
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, rgba(255, 107, 0, 0.05) 100%);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.1);
-}
-
-.special-filter-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.special-filter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    align-items: end;
-}
-
-.filter-combo {
-    position: relative;
-}
-
-.filter-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--primary-color);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.filter-vs {
-    text-align: center;
-    padding: 0.5rem;
-}
-
-.filter-vs span {
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-    font-weight: 700;
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    border: 2px solid var(--primary-color);
-}
-
-.filter-actions {
-    display: flex;
-    gap: 0.5rem;
-    grid-column: 1 / -1;
-}
-
-/* Dropdowns e Inputs Estilizados */
-.filter-select.stylish, .filter-input.stylish {
-    width: 100%;
-    background-color: var(--bg-color);
-    border: 2px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.8rem 1rem 0.8rem 2.5rem;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-}
-
-.filter-select.stylish {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ff6b00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 2.5rem;
-}
-
-.filter-select.stylish:focus, .filter-input.stylish:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
-}
-
-.filter-select.stylish:hover, .filter-input.stylish:hover {
-    border-color: var(--primary-light);
-}
-
-.filter-select.stylish option {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: 10px;
-}
-
-/* Botões de Filtro */
-.filter-btn {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.filter-btn.apply {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: var(--bg-color);
-}
-
-.filter-btn.clear {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
-}
-
-.filter-btn.apply:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
-}
-
-.filter-btn.clear:hover {
-    border-color: var(--text-secondary);
-    transform: translateY(-2px);
-}
-
-/* Botão Adicionar Beat */
-.add-beat-btn {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: var(--bg-color);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    margin-left: auto;
-}
-
-.add-beat-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
-    animation: pulse 1s infinite;
-}
-
-/* Grid de Beats Atualizado */
-.beats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.beat-card {
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid transparent;
-    position: relative;
-}
-
-.beat-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-}
-
-.beat-card-header {
-    padding: 1.5rem;
-    background-color: rgba(10, 10, 10, 0.7);
-    position: relative;
-    overflow: hidden;
-}
-
-.beat-card-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent 0%, rgba(255, 107, 0, 0.1) 100%);
-}
-
-.beat-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.beat-producer {
-    color: var(--primary-color);
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.beat-style-tag {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    z-index: 1;
-}
-
-/* Player de Áudio Customizado */
-.beat-player-custom {
-    padding: 1.5rem;
-    background-color: var(--bg-color);
-}
-
-.player-container {
-    background-color: var(--bg-lighter);
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-}
-
-.player-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.play-pause-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    border: none;
-    color: var(--bg-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.play-pause-btn::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.play-pause-btn:hover::before {
-    opacity: 1;
-}
-
-.play-pause-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
-}
-
-.play-pause-btn.playing {
-    animation: pulse 2s infinite;
-}
-
-.player-info {
-    flex: 1;
-}
-
-.player-time {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
-
-/* Progress Bar Customizada */
-.progress-container {
-    width: 100%;
-    height: 6px;
-    background-color: var(--bg-color);
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    border-radius: 3px;
-    position: relative;
-    transition: width 0.1s linear;
-}
-
-.progress-bar::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-/* Volume Control */
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.volume-icon {
-    color: var(--primary-color);
-    font-size: 1rem;
-}
-
-.volume-slider {
-    flex: 1;
-    height: 4px;
-    background-color: var(--bg-color);
-    border-radius: 2px;
-    cursor: pointer;
-    position: relative;
-}
-
-.volume-level {
-    height: 100%;
-    width: 70%;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    border-radius: 2px;
-}
-
-/* Visualização de Onda Sonora */
-.waveform {
-    height: 40px;
-    margin: 1rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2px;
-}
-
-.wave-bar {
-    flex: 1;
-    background: linear-gradient(to top, var(--primary-color), var(--primary-light));
-    border-radius: 2px;
-    animation: wave 1.5s ease-in-out infinite;
-    animation-play-state: paused;
-    min-height: 4px;
-}
-
-.beat-playing .wave-bar {
-    animation-play-state: running;
-}
-
-@keyframes wave {
-    0%, 100% {
-        height: 30%;
-    }
-    50% {
-        height: 100%;
-    }
-}
-
-/* Info do Beat */
-.beat-info-details {
-    padding: 1rem;
-    background-color: var(--bg-light);
-    border-radius: 10px;
-    margin-top: 1rem;
-}
-
-.beat-info-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.beat-info-label {
-    color: var(--text-secondary);
-}
-
-.beat-info-value {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-/* Footer do Card */
-.beat-card-footer {
-    padding: 1rem 1.5rem;
-    background-color: rgba(10, 10, 10, 0.8);
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.beat-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.beat-action-btn {
-    background: none;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.beat-action-btn:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--bg-color);
-    transform: translateY(-2px);
-}
-
-.beat-downloads {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-/* Modal Atualizado */
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.modal-header h3 {
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-}
-
-.modal-close {
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    line-height: 1;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.modal-close:hover {
-    color: var(--danger-color);
-    background-color: rgba(255, 51, 51, 0.1);
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-}
-
-/* Indicador de Beat Tocando */
-.beat-playing-indicator {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 12px;
-    height: 12px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    animation: beat-pulse 1s infinite;
-    z-index: 2;
-}
-
-@keyframes beat-pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(255, 107, 0, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .beats-grid {
-        grid-template-columns: 1fr;
-    }
     
-    .special-filter-grid {
+    .form-row {
         grid-template-columns: 1fr;
     }
     
     .filters-main {
         flex-direction: column;
-        align-items: stretch;
     }
     
-    .add-beat-btn {
-        margin-left: 0;
-        justify-content: center;
-    }
-    
-    .player-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .play-pause-btn {
-        align-self: center;
-    }
-}
-
-
-
-
-
-/* ===== ESTILOS PARA STATS ===== */
-
-/* Ajustes para o cartão de filtros */
-#stats .beat-filters-card {
-    margin-bottom: 2rem;
-}
-
-/* Grid de MCs atualizado */
-.mc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.mc-card {
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid transparent;
-    position: relative;
-}
-
-.mc-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-}
-
-.mc-card-header {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: rgba(10, 10, 10, 0.7);
-    position: relative;
-    overflow: hidden;
-}
-
-.mc-card-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent 0%, rgba(255, 107, 0, 0.1) 100%);
-}
-
-.mc-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 1.5rem;
-    border: 3px solid var(--primary-color);
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.mc-card:hover .mc-image {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 107, 0, 0.5);
-}
-
-.mc-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mc-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-color);
-    position: relative;
-    z-index: 1;
-}
-
-.mc-card-body {
-    padding: 1.5rem;
-    background-color: var(--bg-lighter);
-}
-
-.mc-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.mc-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--bg-color);
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.mc-stat:hover {
-    border-color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.stat-value {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 0.3rem;
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.winrate-bar {
-    margin-top: 1rem;
-}
-
-.winrate-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.winrate-value {
-    font-weight: 700;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-}
-
-.winrate-bar-bg {
-    height: 10px;
-    background-color: var(--bg-color);
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-}
-
-.winrate-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    border-radius: 5px;
-    position: relative;
-    transition: width 1s ease-in-out;
-}
-
-.winrate-bar-fill::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-/* Indicador de campeão semanal */
-.champion-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
-    color: var(--bg-color);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-    animation: crown-pulse 2s infinite;
-}
-
-@keyframes crown-pulse {
-    0%, 100% {
-        box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(255, 204, 0, 0.8);
-    }
-}
-
-/* Card Footer atualizado */
-.mc-card-footer {
-    padding: 1rem 1.5rem;
-    background-color: rgba(10, 10, 10, 0.8);
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.mc-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.mc-action-btn {
-    background: none;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.mc-action-btn:hover {
-    transform: translateY(-2px);
-}
-
-.edit-btn:hover {
-    background-color: var(--info-color);
-    border-color: var(--info-color);
-    color: var(--bg-color);
-}
-
-.delete-btn:hover {
-    background-color: var(--danger-color);
-    border-color: var(--danger-color);
-    color: var(--bg-color);
-}
-
-.featured-btn:hover {
-    background-color: var(--warning-color);
-    border-color: var(--warning-color);
-    color: var(--bg-color);
-}
-
-/* Botão de campeão semanal no footer */
-.crown-btn {
-    background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
-    border: none;
-    color: var(--bg-color);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.crown-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .mc-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .mc-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .mc-card-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .mc-image {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    #adminStatsControls {
-        flex-direction: column;
+    .filter-combo {
         width: 100%;
-    }
-    
-    #adminStatsControls button {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .mc-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .mc-card-footer {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .mc-actions {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
-
-/* Estilos específicos para dropdowns da aba Stats */
-#stats .filter-select.stylish {
-    min-width: 180px;
-}
-
-#stats .filter-select.stylish option {
-    padding: 12px 15px;
-    font-size: 0.95rem;
-}
-
-#stats .filter-select.stylish option:checked {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
-}
-
-/* Ajuste do layout dos filtros para a aba Stats */
-#stats .filters-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-}
-
-#stats .filter-combo {
-    flex: 1;
-    min-width: 200px;
-}
-
-/* Estilo para os emojis nos dropdowns */
-.filter-select.stylish option {
-    font-size: 1rem;
-}
-
-/* Responsividade para os filtros da Stats */
-@media (max-width: 768px) {
-    #stats .filters-main {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    #stats .filter-combo {
-        min-width: 100%;
-    }
-    
-    #adminStatsControls {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    #adminStatsControls button {
-        width: 100%;
-        justify-content: center;
     }
 }
 </style>
 <body>
-    <!-- REMOVER A TELA DE LOGIN INICIAL COMPLETAMENTE -->
-    <!-- Sistema Principal (Sempre visível como usuário) -->
+    <!-- Sistema Principal -->
     <div id="mainSystem" class="main-system">
         <!-- Header/Navegação -->
         <header class="header">
@@ -2582,130 +2208,128 @@ body {
             </section>
 
             <!-- Página Stats -->
-            <!-- Página Stats -->
-<!-- Página Stats -->
-<section id="stats" class="page">
-    <div class="page-header">
-        <h2><i class="fas fa-chart-bar"></i> ESTATÍSTICAS</h2>
-        <p>Desempenho dos MCs</p>
-    </div>
-    
-    <!-- Cartão de Filtros -->
-    <div class="beat-filters-card">
-        <div class="filters-main">
-            <div class="filter-combo">
-                <div class="filter-icon">
-                    <i class="fas fa-sort-amount-down"></i>
+            <section id="stats" class="page">
+                <div class="page-header">
+                    <h2><i class="fas fa-chart-bar"></i> ESTATÍSTICAS</h2>
+                    <p>Desempenho dos MCs</p>
                 </div>
-                <select id="sortBy" class="filter-select stylish">
-                    <option value="vitorias">Vitórias</option>
-                    <option value="derrotas">Derrotas</option>
-                    <option value="twolalas">Twolalas</option>
-                    <option value="participacoes">Participações</option>
-                    <option value="winrate">Winrate</option>
-                </select>
-            </div>
-            
-            <div class="filter-combo">
-                <div class="filter-icon">
-                    <i class="fas fa-sort"></i>
-                </div>
-                <select id="orderBy" class="filter-select stylish">
-                    <option value="desc">⬇Decrescente</option>
-                    <option value="asc">⬆Crescente</option>
-                </select>
-            </div>
-            
-            <div class="filter-combo">
-                <div class="filter-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input type="text" id="searchMC" class="filter-input stylish" placeholder="Buscar MC...">
-            </div>
-            
-            <!-- Botões do Admin (apenas visíveis para admin) -->
-            <div id="adminStatsControls" class="admin-controls hidden">
-                <button id="addMC" class="add-beat-btn">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Novo MC</span>
-                </button>
-                <button id="setWeeklyChampion" class="filter-btn apply">
-                    <i class="fas fa-crown"></i>
-                    <span>Campeão Semanal</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="filter-stats">
-            <div class="stat-item">
-                <i class="fas fa-users"></i>
-                <span id="totalMCs">0</span> MCs
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-trophy"></i>
-                <span id="bestWinrate">0</span>% melhor winrate
-            </div>
-        </div>
-    </div>
-    
-    <!-- Grid de MCs -->
-    <div id="mcGrid" class="mc-grid">
-        <!-- Cards de MC carregados via JavaScript -->
-    </div>
-    
-    <!-- Modal para Adicionar/Editar MC (Admin) -->
-    <div id="mcModal" class="modal hidden">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-user-plus"></i> <span id="modalTitle">Adicionar Novo MC</span></h3>
-                <button class="modal-close" id="cancelModal">&times;</button>
-            </div>
-            <form id="mcForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="mcName"><i class="fas fa-signature"></i> Nome do MC:</label>
-                        <input type="text" id="mcName" required>
+                
+                <!-- Cartão de Filtros -->
+                <div class="beat-filters-card">
+                    <div class="filters-main">
+                        <div class="filter-combo">
+                            <div class="filter-icon">
+                                <i class="fas fa-sort-amount-down"></i>
+                            </div>
+                            <select id="sortBy" class="filter-select stylish">
+                                <option value="vitorias">Vitórias</option>
+                                <option value="derrotas">Derrotas</option>
+                                <option value="twolalas">Twolalas</option>
+                                <option value="participacoes">Participações</option>
+                                <option value="winrate">Winrate</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-combo">
+                            <div class="filter-icon">
+                                <i class="fas fa-sort"></i>
+                            </div>
+                            <select id="orderBy" class="filter-select stylish">
+                                <option value="desc">⬇Decrescente</option>
+                                <option value="asc">⬆Crescente</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-combo">
+                            <div class="filter-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" id="searchMC" class="filter-input stylish" placeholder="Buscar MC...">
+                        </div>
+                        
+                        <!-- Botões do Admin (apenas visíveis para admin) -->
+                        <div id="adminStatsControls" class="admin-controls hidden">
+                            <button id="addMC" class="add-beat-btn">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Novo MC</span>
+                            </button>
+                            <button id="setWeeklyChampion" class="filter-btn apply">
+                                <i class="fas fa-crown"></i>
+                                <span>Campeão Semanal</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="mcImage"><i class="fas fa-image"></i> URL da Imagem:</label>
-                        <input type="text" id="mcImage" placeholder="Cole a URL da imagem">
+                    
+                    <div class="filter-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span id="totalMCs">0</span> MCs
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span id="bestWinrate">0</span>% melhor winrate
+                        </div>
                     </div>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="mcVitorias"><i class="fas fa-trophy"></i> Vitórias:</label>
-                        <input type="number" id="mcVitorias" min="0" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="mcDerrotas"><i class="fas fa-times"></i> Derrotas:</label>
-                        <input type="number" id="mcDerrotas" min="0" value="0">
-                    </div>
+                <!-- Grid de MCs -->
+                <div id="mcGrid" class="mc-grid">
+                    <!-- Cards de MC carregados via JavaScript -->
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="mcTwolalas"><i class="fas fa-star"></i> Twolalas:</label>
-                        <input type="number" id="mcTwolalas" min="0" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="mcParticipacoes"><i class="fas fa-calendar-alt"></i> Participações:</label>
-                        <input type="number" id="mcParticipacoes" min="0" value="0">
+                <!-- Modal para Adicionar/Editar MC (Admin) -->
+                <div id="mcModal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-user-plus"></i> <span id="modalTitle">Adicionar Novo MC</span></h3>
+                            <button class="modal-close" id="cancelModal">&times;</button>
+                        </div>
+                        <form id="mcForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mcName"><i class="fas fa-signature"></i> Nome do MC:</label>
+                                    <input type="text" id="mcName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mcImage"><i class="fas fa-image"></i> URL da Imagem:</label>
+                                    <input type="text" id="mcImage" placeholder="Cole a URL da imagem">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mcVitorias"><i class="fas fa-trophy"></i> Vitórias:</label>
+                                    <input type="number" id="mcVitorias" min="0" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mcDerrotas"><i class="fas fa-times"></i> Derrotas:</label>
+                                    <input type="number" id="mcDerrotas" min="0" value="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mcTwolalas"><i class="fas fa-star"></i> Twolalas:</label>
+                                    <input type="number" id="mcTwolalas" min="0" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mcParticipacoes"><i class="fas fa-calendar-alt"></i> Participações:</label>
+                                    <input type="number" id="mcParticipacoes" min="0" value="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="cancelModal2" class="btn-secondary">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Salvar MC
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                
-                <div class="form-actions">
-                    <button type="button" id="cancelModal2" class="btn-secondary">
-                        <i class="fas fa-times"></i> Cancelar
-                    </button>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-save"></i> Salvar MC
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
+            </section>
 
             <!-- Página Ranking -->
             <section id="ranking" class="page">
@@ -2743,205 +2367,277 @@ body {
                 </div>
             </section>
 
-            <!-- Página Beats -->
-            <!-- Página Beats -->
-<section id="beats" class="page">
-    <div class="page-header">
-        <h2><i class="fas fa-music"></i> BEATS</h2>
-        <p>Instrumentais utilizados nas batalhas</p>
-    </div>
-    
-    <!-- Filtros Especiais (Admin) -->
-    <div id="beatFiltersAdmin" class="beat-filters-admin hidden">
-        <div class="special-filter-card">
-            <h3><i class="fas fa-filter"></i> Filtro Especial (Admin)</h3>
-            <div class="special-filter-grid">
-                <div class="filter-combo">
-                    <div class="filter-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <select id="filterMCA" class="filter-select stylish">
-                        <option value="">Selecione MC A</option>
-                    </select>
+            <!-- Página Beats ATUALIZADA -->
+            <section id="beats" class="page">
+                <div class="page-header">
+                    <h2><i class="fas fa-music"></i> BEATS</h2>
+                    <p>Instrumentais utilizados nas batalhas</p>
                 </div>
                 
-                <div class="filter-vs">
-                    <span>VS</span>
-                </div>
-                
-                <div class="filter-combo">
-                    <div class="filter-icon">
-                        <i class="fas fa-user"></i>
+                <!-- Filtros e Controles -->
+                <div class="beat-filters-card">
+                    <div class="filters-main">
+                        <div class="view-indicator">
+                            <i class="fas fa-eye"></i>
+                            <span>Visualização:</span>
+                        </div>
+                        
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid" title="Visualização em Grade">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" title="Visualização em Lista">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="filter-combo">
+                            <div class="filter-icon">
+                            </div>
+                            <select id="filterBeatStyle" class="filter-select stylish">
+                                <option value="">Todos os estilos</option>
+                                <option value="trap">Trap</option>
+                                <option value="drill">Drill</option>
+                                <option value="boombap">Boom Bap</option>
+                                <option value="rnb">R&B</option>
+                                <option value="funk">Funk</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-combo">
+                            <div class="filter-icon">
+                            </div>
+                            <input type="text" id="filterBeatSearch" class="filter-input stylish" placeholder="Buscar beat ou produtor...">
+                        </div>
+                        
+                        <!-- Botão de Busca por Batalha -->
+                        <button id="searchBattleBtn" class="search-battle-btn">
+                            <i class="fas fa-fist-raised"></i>
+                            <span>Buscar por Batalha</span>
+                        </button>
+                        
+                        <!-- Botões do Admin -->
+                        <div id="adminBeatControls" class="admin-controls hidden">
+                            <button id="addBeat" class="add-beat-btn">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Novo Beat</span>
+                            </button>
+                        </div>
                     </div>
-                    <select id="filterMCB" class="filter-select stylish">
-                        <option value="">Selecione MC B</option>
-                    </select>
-                </div>
-                
-                <div class="filter-combo">
-                    <div class="filter-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <input type="text" id="filterEdicao" class="filter-input stylish" placeholder="Edição">
-                </div>
-                
-                <div class="filter-combo">
-                    <div class="filter-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <select id="filterRound" class="filter-select stylish">
-                        <option value="">Todos os Rounds</option>
-                        <option value="1">Round 1</option>
-                        <option value="2">Round 2</option>
-                        <option value="3">Round 3</option>
-                    </select>
-                </div>
-                
-                <div class="filter-combo">
-                    <div class="filter-icon">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <select id="filterStyle" class="filter-select stylish">
-                        <option value="">Todos os Estilos</option>
-                        <option value="trap">Trap</option>
-                        <option value="drill">Drill</option>
-                        <option value="boombap">Boom Bap</option>
-                        <option value="rnb">R&B</option>
-                        <option value="funk">Funk</option>
-                    </select>
-                </div>
-                
-                <div class="filter-actions">
-                    <button id="applySpecialFilter" class="filter-btn apply">
-                        <i class="fas fa-search"></i> Aplicar
-                    </button>
-                    <button id="clearSpecialFilter" class="filter-btn clear">
-                        <i class="fas fa-times"></i> Limpar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Filtros para Usuários -->
-    <div class="beat-filters-card">
-        <div class="filters-main">
-            <div class="filter-combo">
-                <div class="filter-icon">
-                    <i class="fas fa-sliders-h"></i>
-                </div>
-                <select id="filterBeatStyle" class="filter-select stylish">
-                    <option value="">Todos os estilos</option>
-                    <option value="trap">Trap</option>
-                    <option value="drill">Drill</option>
-                    <option value="boombap">Boom Bap</option>
-                    <option value="rnb">R&B</option>
-                    <option value="funk">Funk</option>
-                </select>
-            </div>
-            
-            <div class="filter-combo">
-                <div class="filter-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input type="text" id="filterBeatSearch" class="filter-input stylish" placeholder="Buscar beat ou produtor...">
-            </div>
-            
-            <!-- Botões do Admin (apenas visíveis para admin) -->
-            <div id="adminBeatControls" class="admin-controls hidden">
-                <button id="addBeat" class="add-beat-btn">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Novo Beat</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="filter-stats">
-            <div class="stat-item">
-                <i class="fas fa-music"></i>
-                <span id="totalBeats">0</span> beats
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-play-circle"></i>
-                <span id="playingNow">0</span> tocando
-            </div>
-        </div>
-    </div>
-    
-    <!-- Grid de Beats -->
-    <div id="beatsGrid" class="beats-grid">
-        <!-- Beats carregados via JavaScript -->
-    </div>
-    
-    <!-- Modal para Adicionar Beat (Admin) -->
-    <div id="beatModal" class="modal hidden">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-plus-circle"></i> Adicionar Novo Beat</h3>
-                <button class="modal-close" id="cancelBeatModal">&times;</button>
-            </div>
-            <form id="beatForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="beatName"><i class="fas fa-headphones"></i> Nome do Beat:</label>
-                        <input type="text" id="beatName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="beatProducer"><i class="fas fa-user"></i> Produtor:</label>
-                        <input type="text" id="beatProducer" required>
+                    
+                    <div class="filter-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-music"></i>
+                            <span id="totalBeats">0</span> beats
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-play-circle"></i>
+                            <span id="playingNow">0</span> tocando
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-fist-raised"></i>
+                            <span id="totalBattles">0</span> batalhas
+                        </div>
                     </div>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="beatStyle"><i class="fas fa-sliders-h"></i> Estilo:</label>
-                        <select id="beatStyle" class="filter-select">
-                            <option value="trap">Trap</option>
-                            <option value="drill">Drill</option>
-                            <option value="boombap">Boom Bap</option>
-                            <option value="rnb">R&B</option>
-                            <option value="funk">Funk</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="beatBPM"><i class="fas fa-tachometer-alt"></i> BPM:</label>
-                        <input type="number" id="beatBPM" min="60" max="200" value="120">
+                <!-- Grid de Beats (Visualização em Grade) -->
+                <div id="beatsGridView" class="beats-grid-view">
+                    <!-- Beats carregados via JavaScript -->
+                </div>
+                
+                <!-- Lista de Beats (Visualização em Lista) -->
+                <div id="beatsListView" class="beats-list-view hidden">
+                    <!-- Beats em formato de lista -->
+                </div>
+                
+                <!-- Modal de Busca por Batalha -->
+                <div id="battleSearchModal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-fist-raised"></i> Buscar por Batalha</h3>
+                            <button class="modal-close" id="cancelBattleSearch">&times;</button>
+                        </div>
+                        <form id="battleSearchForm" class="battle-search-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="searchEdicao"><i class="fas fa-calendar-alt"></i> Edição:</label>
+                                    <input type="text" id="searchEdicao" class="filter-input" placeholder="Ex: Edição 15">
+                                </div>
+                                <div class="form-group">
+                                    <label for="searchRound"><i class="fas fa-layer-group"></i> Round:</label>
+                                    <select id="searchRound" class="filter-select">
+                                        <option value="">Todos os Rounds</option>
+                                        <option value="1">Round 1</option>
+                                        <option value="2">Round 2</option>
+                                        <option value="3">Round 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="searchMCA"><i class="fas fa-user"></i> MC A:</label>
+                                    <select id="searchMCA" class="filter-select">
+                                        <option value="">Selecione MC A</option>
+                                        <!-- Opções preenchidas via JavaScript -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="searchMCB"><i class="fas fa-user"></i> MC B:</label>
+                                    <select id="searchMCB" class="filter-select">
+                                        <option value="">Selecione MC B</option>
+                                        <!-- Opções preenchidas via JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="cancelBattleSearch2" class="btn-secondary">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-search"></i> Buscar Batalhas
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="beatURL"><i class="fas fa-link"></i> URL do Áudio:</label>
-                    <input type="text" id="beatURL" placeholder="Cole a URL do áudio" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="beatEdicao"><i class="fas fa-calendar-alt"></i> Edição:</label>
-                        <input type="text" id="beatEdicao" placeholder="Ex: Edição 15">
-                    </div>
-                    <div class="form-group">
-                        <label for="beatRound"><i class="fas fa-layer-group"></i> Round:</label>
-                        <select id="beatRound" class="filter-select">
-                            <option value="">Não especificado</option>
-                            <option value="1">Round 1</option>
-                            <option value="2">Round 2</option>
-                            <option value="3">Round 3</option>
-                        </select>
+                <!-- Modal de Detalhes do Beat -->
+                <div id="beatDetailsModal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-music"></i> Detalhes do Beat</h3>
+                            <button class="modal-close" id="closeBeatDetails">&times;</button>
+                        </div>
+                        
+                        <div id="beatDetailsContent">
+                            <!-- Conteúdo carregado dinamicamente -->
+                        </div>
                     </div>
                 </div>
                 
-                <div class="form-actions">
-                    <button type="button" id="cancelBeatModal2" class="btn-secondary">
-                        <i class="fas fa-times"></i> Cancelar
-                    </button>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-save"></i> Salvar Beat
-                    </button>
+                <!-- Modal para Adicionar/Editar Beat -->
+                <div id="beatModal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-plus-circle"></i> <span id="beatModalTitle">Adicionar Novo Beat</span></h3>
+                            <button class="modal-close" id="cancelBeatModal">&times;</button>
+                        </div>
+                        <form id="beatForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="beatName"><i class="fas fa-headphones"></i> Nome do Beat:</label>
+                                    <input type="text" id="beatName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="beatProducer"><i class="fas fa-user"></i> Produtor:</label>
+                                    <input type="text" id="beatProducer" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="beatStyle"><i class="fas fa-sliders-h"></i> Estilo:</label>
+                                    <select id="beatStyle" class="filter-select">
+                                        <option value="trap">Trap</option>
+                                        <option value="drill">Drill</option>
+                                        <option value="boombap">Boom Bap</option>
+                                        <option value="rnb">R&B</option>
+                                        <option value="funk">Funk</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="beatBPM"><i class="fas fa-tachometer-alt"></i> BPM:</label>
+                                    <input type="number" id="beatBPM" min="60" max="200" value="120">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="beatURL"><i class="fas fa-link"></i> URL do Áudio:</label>
+                                <input type="text" id="beatURL" placeholder="Cole a URL do áudio" required>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="cancelBeatModal2" class="btn-secondary">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Salvar Beat
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</section>
+                
+                <!-- Modal para Adicionar Batalha ao Beat -->
+                <div id="addBattleModal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-fist-raised"></i> Adicionar Batalha ao Beat</h3>
+                            <button class="modal-close" id="closeAddBattle">&times;</button>
+                        </div>
+                        <form id="addBattleForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="battleEdicao"><i class="fas fa-calendar-alt"></i> Edição:</label>
+                                    <input type="text" id="battleEdicao" required placeholder="Ex: Edição 15">
+                                </div>
+                                <div class="form-group">
+                                    <label for="battleRound"><i class="fas fa-layer-group"></i> Round:</label>
+                                    <select id="battleRound" class="filter-select" required>
+                                        <option value="">Selecione o round</option>
+                                        <option value="1">Round 1</option>
+                                        <option value="2">Round 2</option>
+                                        <option value="3">Round 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="battleMCA"><i class="fas fa-user"></i> MC A:</label>
+                                    <select id="battleMCA" class="filter-select" required>
+                                        <option value="">Selecione MC A</option>
+                                        <!-- Preenchido via JavaScript -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="battleMCB"><i class="fas fa-user"></i> MC B:</label>
+                                    <select id="battleMCB" class="filter-select" required>
+                                        <option value="">Selecione MC B</option>
+                                        <!-- Preenchido via JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="battleVencedor"><i class="fas fa-trophy"></i> Vencedor:</label>
+                                    <select id="battleVencedor" class="filter-select">
+                                        <option value="">Sem vencedor</option>
+                                        <!-- Preenchido dinamicamente -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="battleData"><i class="fas fa-calendar"></i> Data da Batalha:</label>
+                                    <input type="date" id="battleData" class="filter-input">
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="cancelAddBattle" class="btn-secondary">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-plus"></i> Adicionar Batalha
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
 
             <!-- Página Mídia -->
             <section id="midia" class="page">
@@ -2959,7 +2655,7 @@ body {
                     
                     <!-- Botões do Admin (apenas visíveis para admin) -->
                     <div id="adminMediaControls" class="admin-controls hidden">
-                        <button id="addVideo" class="admin-btn"><i class="fas fa-plus"></i> Adicionar Vídeo</button>
+                        <button id="addVideo" class="add-beat-btn"><i class="fas fa-plus"></i> Adicionar Vídeo</button>
                     </div>
                 </div>
                 
@@ -3095,7 +2791,7 @@ O nome Lampião representa resistência, identidade e história. Assim como o No
                 <div class="footer-section">
                     <h4>CONTATO</h4>
                     <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> contato@batalhadolampiao.com</p>
+                        <p><i class="fas fa-envelope"></i> batalhalampiao@gmail.com</p>
                         <p><i class="fas fa-phone"></i> (85) 99638-1310</p>
                         <p><i class="fas fa-map-marker-alt"></i> Fortaleza - CE, Brasil</p>
                     </div><div class="admin-page-link">
@@ -3114,24 +2810,1939 @@ O nome Lampião representa resistência, identidade e história. Assim como o No
     </div>
 
     <!-- Modal de Login Admin -->
-<!-- Modal de Login Admin (escondido inicialmente) -->
-<div id="adminLoginModal" class="modal hidden">
-    <div class="modal-content">
-        <h3>ACESSO ADMINISTRATIVO</h3>
-        <p>Digite a senha para acessar o modo administrador:</p>
-        <form id="adminLoginForm">
-            <div class="form-group">
-                <input type="password" id="adminPassword" placeholder="Senha" required>
-            </div>
-            <div class="form-buttons">
-                <button type="button" id="cancelAdminLogin" class="btn-secondary">Cancelar</button>
-                <button type="submit" class="btn-primary">Entrar</button>
-            </div>
-        </form>
+    <div id="adminLoginModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>ACESSO ADMINISTRATIVO</h3>
+            <p>Digite a senha para acessar o modo administrador:</p>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <input type="password" id="adminPassword" placeholder="Senha" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="cancelAdminLogin" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-    <script src="script.js"></script>
-    <script src="admin.js"></script>
+    <script>
+        // Dados iniciais
+        let isAdmin = false; // Começa como false (modo usuário)
+        let currentPage = 'home';
+        let mcData = [];
+        let beatsData = [];
+        let videosData = [];
+        let photosData = [];
+        let eventsData = [];
+        let currentAudio = null;
+        let currentAudioElement = null;
+        let isPlaying = false;
+        let currentView = 'grid'; // 'grid' ou 'list' para visualização de beats
+
+        // Inicialização quando o DOM carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carregar dados iniciais
+            loadInitialData();
+            
+            // Configurar navegação
+            setupNavigation();
+            
+            // Configurar eventos dos modais
+            setupModals();
+            
+            // Configurar eventos do modo admin
+            setupAdminMode();
+            
+            // Configurar eventos da página de beats
+            setupBeatsPage();
+            
+            // Iniciar sempre como usuário
+            updateUIForUserType();
+            
+            // Inicializar a página home
+            loadHomePage();
+        });
+
+        // Carregar dados iniciais
+        function loadInitialData() {
+            // Dados de exemplo para MCs
+            mcData = [
+                {
+                    id: 1,
+                    name: "Guri Mc",
+                    image: "../assets/images/Guri.png",
+                    vitorias: 15,
+                    derrotas: 3,
+                    twolalas: 8,
+                    participacoes: 18,
+                    winrate: 83.3,
+                    isWeeklyChampion: true,
+                    banner: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                },
+                {
+                    id: 2,
+                    name: "Solo Mc",
+                    image: "../assets/images/SoloMc.png",
+                    vitorias: 12,
+                    derrotas: 6,
+                    twolalas: 5,
+                    participacoes: 18,
+                    winrate: 66.7
+                },
+                {
+                    id: 3,
+                    name: "MCharles",
+                    image: "../assets/images/Mcharles.png",
+                    vitorias: 10,
+                    derrotas: 8,
+                    twolalas: 4,
+                    participacoes: 18,
+                    winrate: 55.6
+                },
+                {
+                    id: 4,
+                    name: "Snart",
+                    image: "../assets/images/Snart.png",
+                    vitorias: 8,
+                    derrotas: 10,
+                    twolalas: 3,
+                    participacoes: 18,
+                    winrate: 44.4
+                },
+                {
+                    id: 5,
+                    name: "Tonhão",
+                    image: "../assets/images/Tonhao.png",
+                    vitorias: 6,
+                    derrotas: 12,
+                    twolalas: 2,
+                    participacoes: 18,
+                    winrate: 33.3
+                },
+                {
+                    id: 6,
+                    name: "Mandacaru",
+                    image: "../assets/images/Mandacaru.png",
+                    vitorias: 5,
+                    derrotas: 13,
+                    twolalas: 1,
+                    participacoes: 18,
+                    winrate: 27.8
+                }
+            ];
+
+            // Dados de exemplo para beats com histórico de batalhas
+            beatsData = [
+                {
+                    id: 1,
+                    name: "Nordeste",
+                    producer: "Xmit",
+                    style: "trap",
+                    url: "assets/beats/Nordeste-Xmit.mp3",
+                    bpm: 146,
+                    battles: [
+                        {
+                            id: 1,
+                            edicao: "Edição 15",
+                            round: "1",
+                            mca: { id: 1, name: "Guri Mc", image: "../assets/images/Guri.png" },
+                            mcb: { id: 2, name: "Solo Mc", image: "../assets/images/SoloMc.png" },
+                            vencedor: 1,
+                            data: "2024-10-15"
+                        },
+                        {
+                            id: 2,
+                            edicao: "Edição 14",
+                            round: "2",
+                            mca: { id: 3, name: "MCharles", image: "../assets/images/Mcharles.png" },
+                            mcb: { id: 4, name: "Snart", image: "../assets/images/Snart.png" },
+                            vencedor: 3,
+                            data: "2024-09-20"
+                        }
+                    ],
+                    downloads: 42,
+                    plays: 156
+                },
+                {
+                    id: 2,
+                    name: "Mandacaru",
+                    producer: "Kaoz",
+                    style: "trap",
+                    url: "assets/beats/Mandacaru-Kaoz.mp3",
+                    bpm: 150,
+                    battles: [
+                        {
+                            id: 3,
+                            edicao: "Edição 13",
+                            round: "3",
+                            mca: { id: 5, name: "Tonhão", image: "../assets/images/Tonhao.png" },
+                            mcb: { id: 6, name: "Mandacaru", image: "../assets/images/Mandacaru.png" },
+                            vencedor: 6,
+                            data: "2024-08-10"
+                        }
+                    ],
+                    downloads: 35,
+                    plays: 89
+                },
+                {
+                    id: 3,
+                    name: "Peixeira",
+                    producer: "Xmit",
+                    style: "trap",
+                    url: "assets/beats/Peixeira-Xmit.mp3",
+                    bpm:160,
+                    battles: [
+                        {
+                            id: 4,
+                            edicao: "Edição 12",
+                            round: "1",
+                            mca: { id: 1, name: "Guri Mc", image: "../assets/images/Guri.png" },
+                            mcb: { id: 3, name: "MCharles", image: "../assets/images/Mcharles.png" },
+                            vencedor: 1,
+                            data: "2024-07-05"
+                        }
+                    ],
+                    downloads: 28,
+                    plays: 67
+                }
+            ];
+
+            // Dados de exemplo para vídeos
+            videosData = [
+                {
+                    id: 1,
+                    title: "BDL 03",
+                    url: "https://www.youtube.com/embed/IRpRJSMTywg?start=4&modestbranding=1&rel=0",
+                    description: "Terceira Edição da Batalha do Lampião<br>📌 Serrinha, Fortaleza(CE)",
+                    featured: true
+                },
+                {
+                    id: 2,
+                    title: "BDL 02",
+                    url: "https://www.youtube.com/embed/IRpRJSMTywg?start=4&modestbranding=1&rel=0",
+                    description: "Segunda Edição da Batalha do Lampião<br>📌 Serrinha, Fortaleza(CE)"
+                },
+                {
+                    id: 3,
+                    title: "BDL 01",
+                    url: "https://www.youtube.com/embed/IRpRJSMTywg?start=4&modestbranding=1&rel=0",
+                    description: "Primeira Edição da Batalha do Lampião<br>📌 Serrinha, Fortaleza(CE)"
+                }
+            ];
+
+            // Dados de exemplo para fotos
+            photosData = [
+                "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3150822:1634859348/MCharles_Créditos_%20Rui%20Mendes%20(1).jpg?f=16x9&h=698&w=1280&$p$f$h$w=c61aec9",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_NyATV_vlDq-pEzIAwOcBIwIpCNTYLFbbmQ&s",
+                "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3708801:1762893099/snart.jpeg?f=default&$p$f=836dbc8",
+                "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3707058:1762446492/cururu-skate-e-rap%20(23).jpeg?f=1x1&h=1280&w=1280&$p$f$h$w=ede9f86"
+            ];
+
+            // Dados de exemplo para eventos
+            eventsData = [
+                {
+                    date: "15/10/2026",
+                    location: "Centro Cultural do Nordeste - Fortaleza/CE",
+                    description: "4ª Edição Batalha do Lampião"
+                }
+            ];
+        }
+
+        // Configurar navegação
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLeft = document.querySelector('.nav-left');
+            const navRight = document.querySelector('.nav-right');
+            
+            // Navegação por clique nos links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    
+                    // Atualizar links ativos
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Mostrar página correspondente
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                        if (page.id === pageId) {
+                            page.classList.add('active');
+                            currentPage = pageId;
+                            
+                            // Carregar conteúdo específico da página
+                            loadPageContent(pageId);
+                        }
+                    });
+                    
+                    // Fechar menu móvel se estiver aberto
+                    if (window.innerWidth <= 768) {
+                        navLeft.classList.remove('active');
+                        navRight.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Menu móvel
+            mobileMenuBtn.addEventListener('click', function() {
+                navLeft.classList.toggle('active');
+                navRight.classList.toggle('active');
+            });
+            
+            // Logo também leva para home
+            document.querySelector('.logo').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('[data-page="home"]').click();
+            });
+        }
+
+        // Configurar modais
+        function setupModals() {
+            // Modal de MC
+            const mcModal = document.getElementById('mcModal');
+            const cancelModal = document.getElementById('cancelModal');
+            const mcForm = document.getElementById('mcForm');
+            
+            cancelModal.addEventListener('click', function() {
+                mcModal.classList.add('hidden');
+            });
+            
+            mcForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Em uma implementação real, isso salvaria no backend
+                showNotification('MC salvo com sucesso!', 'success');
+                mcModal.classList.add('hidden');
+                loadStatsPage();
+            });
+            
+            // Modal de vídeo
+            const videoModal = document.getElementById('videoModal');
+            const cancelVideoModal = document.getElementById('cancelVideoModal');
+            const videoForm = document.getElementById('videoForm');
+            
+            cancelVideoModal.addEventListener('click', function() {
+                videoModal.classList.add('hidden');
+            });
+            
+            videoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Em uma implementação real, isso salvaria no backend
+                showNotification('Vídeo adicionado com sucesso!', 'success');
+                videoModal.classList.add('hidden');
+                loadMidiaPage();
+            });
+            
+            // Modal de login admin
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const cancelAdminLogin = document.getElementById('cancelAdminLogin');
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            
+            cancelAdminLogin.addEventListener('click', function() {
+                adminLoginModal.classList.add('hidden');
+            });
+            
+            adminLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('adminPassword').value;
+                
+                // Senha padrão
+                if (password === '1') {
+                    isAdmin = true;
+                    adminLoginModal.classList.add('hidden');
+                    updateUIForUserType();
+                    showNotification('Modo administrador ativado!', 'success');
+                } else {
+                    showNotification('Senha incorreta! Tente novamente.', 'error');
+                }
+            });
+        }
+
+        // Configurar modo admin
+        function setupAdminMode() {
+            // Link de Admin Page no footer
+            const adminPageLink = document.getElementById('adminPageLink');
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const backToUserMode = document.getElementById('backToUserMode');
+            
+            // Clicar no link "Admin Page" no footer
+            if (adminPageLink) {
+                adminPageLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (!isAdmin) {
+                        adminLoginModal.classList.remove('hidden');
+                    } else {
+                        // Se já for admin, apenas mostrar notificação
+                        showNotification('Você já está no modo administrador!', 'info');
+                    }
+                });
+            }
+            
+            // Clicar na logo para voltar ao modo usuário (quando em modo admin)
+            if (backToUserMode) {
+                backToUserMode.addEventListener('click', function(e) {
+                    // Se estiver no modo admin, voltar ao modo usuário
+                    if (isAdmin) {
+                        isAdmin = false;
+                        updateUIForUserType();
+                        showNotification('Modo usuário ativado!', 'info');
+                        
+                        // Ir para a página home
+                        document.querySelector('[data-page="home"]').click();
+                    }
+                });
+            }
+        }
+
+        // Configurar página de beats
+        function setupBeatsPage() {
+            // Configurar controles de visualização
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover classe active de todos os botões
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Adicionar classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    // Atualizar visualização
+                    currentView = this.dataset.view;
+                    renderBeats();
+                });
+            });
+            
+            // Configurar busca por batalha
+            const searchBattleBtn = document.getElementById('searchBattleBtn');
+            const battleSearchModal = document.getElementById('battleSearchModal');
+            const cancelBattleSearch = document.getElementById('cancelBattleSearch');
+            const cancelBattleSearch2 = document.getElementById('cancelBattleSearch2');
+            const battleSearchForm = document.getElementById('battleSearchForm');
+            
+            // Abrir modal de busca por batalha
+            searchBattleBtn.addEventListener('click', function() {
+                populateMCSelects();
+                battleSearchModal.classList.remove('hidden');
+            });
+            
+            // Fechar modal
+            cancelBattleSearch.addEventListener('click', function() {
+                battleSearchModal.classList.add('hidden');
+            });
+            
+            cancelBattleSearch2.addEventListener('click', function() {
+                battleSearchModal.classList.add('hidden');
+            });
+            
+            // Formulário de busca
+            battleSearchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const edicao = document.getElementById('searchEdicao').value;
+                const round = document.getElementById('searchRound').value;
+                const mca = document.getElementById('searchMCA').value;
+                const mcb = document.getElementById('searchMCB').value;
+                
+                // Filtrar beats que tenham batalhas com os critérios
+                const filteredBeats = beatsData.filter(beat => {
+                    return beat.battles.some(battle => {
+                        const matchesEdicao = !edicao || battle.edicao.includes(edicao);
+                        const matchesRound = !round || battle.round === round;
+                        const matchesMCA = !mca || battle.mca.name === mca;
+                        const matchesMCB = !mcb || battle.mcb.name === mcb;
+                        
+                        return matchesEdicao && matchesRound && matchesMCA && matchesMCB;
+                    });
+                });
+                
+                // Renderizar beats filtrados
+                renderBeats(filteredBeats);
+                
+                // Fechar modal
+                battleSearchModal.classList.add('hidden');
+                
+                // Mostrar resultados
+                if (filteredBeats.length === 0) {
+                    showNotification('Nenhum beat encontrado para os critérios especificados.', 'info');
+                } else {
+                    showNotification(`Encontrados ${filteredBeats.length} beats para os critérios especificados.`, 'success');
+                }
+            });
+            
+            // Configurar filtros de busca
+            const filterBeatStyle = document.getElementById('filterBeatStyle');
+            const filterBeatSearch = document.getElementById('filterBeatSearch');
+            
+            filterBeatStyle.addEventListener('change', function() {
+                filterBeats();
+            });
+            
+            filterBeatSearch.addEventListener('input', debounce(function() {
+                filterBeats();
+            }, 300));
+            
+            // Configurar modal de beat
+            const beatModal = document.getElementById('beatModal');
+            const cancelBeatModal = document.getElementById('cancelBeatModal');
+            const cancelBeatModal2 = document.getElementById('cancelBeatModal2');
+            const beatForm = document.getElementById('beatForm');
+            
+            cancelBeatModal.addEventListener('click', function() {
+                beatModal.classList.add('hidden');
+            });
+            
+            cancelBeatModal2.addEventListener('click', function() {
+                beatModal.classList.add('hidden');
+            });
+            
+            beatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveBeat();
+            });
+            
+            // Configurar modal de adicionar batalha
+            const addBattleModal = document.getElementById('addBattleModal');
+            const closeAddBattle = document.getElementById('closeAddBattle');
+            const cancelAddBattle = document.getElementById('cancelAddBattle');
+            const addBattleForm = document.getElementById('addBattleForm');
+            
+            closeAddBattle.addEventListener('click', function() {
+                addBattleModal.classList.add('hidden');
+            });
+            
+            cancelAddBattle.addEventListener('click', function() {
+                addBattleModal.classList.add('hidden');
+            });
+            
+            addBattleForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                addBattleToCurrentBeat();
+            });
+            
+            // Configurar modal de detalhes do beat
+            const beatDetailsModal = document.getElementById('beatDetailsModal');
+            const closeBeatDetails = document.getElementById('closeBeatDetails');
+            
+            closeBeatDetails.addEventListener('click', function() {
+                beatDetailsModal.classList.add('hidden');
+            });
+            
+            // Configurar botão adicionar beat (admin)
+            const addBeatBtn = document.getElementById('addBeat');
+            if (addBeatBtn) {
+                addBeatBtn.addEventListener('click', function() {
+                    openBeatModal();
+                });
+            }
+        }
+
+        // Atualizar UI baseado no tipo de usuário
+        function updateUIForUserType() {
+            const adminElements = document.querySelectorAll('.admin-controls, #rankingAdminHeader');
+            const body = document.body;
+            
+            if (isAdmin) {
+                // Modo administrador
+                adminElements.forEach(el => el.classList.remove('hidden'));
+                body.classList.add('modo-admin');
+                
+                // Esconder link de admin page no footer
+                const adminPageLink = document.getElementById('adminPageLink');
+                if (adminPageLink) {
+                    adminPageLink.style.display = 'none';
+                }
+            } else {
+                // Modo usuário
+                adminElements.forEach(el => el.classList.add('hidden'));
+                body.classList.remove('modo-admin');
+                
+                // Mostrar link de admin page no footer
+                const adminPageLink = document.getElementById('adminPageLink');
+                if (adminPageLink) {
+                    adminPageLink.style.display = 'block';
+                }
+            }
+            
+            // Recarregar página atual
+            loadPageContent(currentPage);
+        }
+
+        // Carregar conteúdo da página
+        function loadPageContent(pageId) {
+            switch(pageId) {
+                case 'home':
+                    loadHomePage();
+                    break;
+                case 'stats':
+                    loadStatsPage();
+                    break;
+                case 'ranking':
+                    loadRankingPage();
+                    break;
+                case 'beats':
+                    loadBeatsPage();
+                    break;
+                case 'midia':
+                    loadMidiaPage();
+                    break;
+                case 'sobre':
+                    // Sobre nós não precisa de carregamento adicional
+                    break;
+            }
+        }
+
+        // Carregar página Home
+        function loadHomePage() {
+            // Carregar campeão semanal
+            const champion = mcData.find(mc => mc.isWeeklyChampion);
+            const championSection = document.getElementById('weeklyChampion');
+            
+            if (champion && championSection) {
+                championSection.innerHTML = `
+                    <div class="champion-image">
+                        <img src="${champion.image}" alt="${champion.name}">
+                    </div>
+                    <div class="champion-info">
+                        <h4>${champion.name}</h4>
+                        <p>Campeão da Semana</p>
+                        <div class="champion-stats">
+                            <div class="stat-badge win">
+                                <i class="fas fa-trophy"></i>
+                                <span>${champion.vitorias} Vitórias</span>
+                            </div>
+                            <div class="stat-badge lose">
+                                <i class="fas fa-times"></i>
+                                <span>${champion.derrotas} Derrotas</span>
+                            </div>
+                            <div class="stat-badge win">
+                                <i class="fas fa-star"></i>
+                                <span>${champion.twolalas} Twolalas</span>
+                            </div>
+                        </div>
+                        <p class="winrate">Winrate: <strong>${champion.winrate}%</strong></p>
+                    </div>
+                `;
+            }
+            
+            // Carregar vídeo em destaque
+            const featuredVideo = videosData.find(video => video.featured);
+            const videoSection = document.getElementById('featuredVideo');
+            
+            if (featuredVideo && videoSection) {
+                videoSection.innerHTML = `
+                    <div class="video-container">
+                        <iframe src="${featuredVideo.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>${featuredVideo.title}</h4>
+                        <p>${featuredVideo.description}</p>
+                    </div>
+                `;
+            }
+            
+            // Carregar galeria de fotos
+            const gallerySection = document.getElementById('battleGallery');
+            
+            if (gallerySection) {
+                gallerySection.innerHTML = photosData.map(photo => `
+                    <div class="gallery-item">
+                        <img src="${photo}" alt="Batalha do Lampião">
+                    </div>
+                `).join('');
+            }
+            
+            // Carregar próximas batalhas
+            const eventsSection = document.getElementById('upcomingBattles');
+            
+            if (eventsSection) {
+                eventsSection.innerHTML = eventsData.map(event => `
+                    <div class="event-card">
+                        <div class="event-date">${event.date}</div>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${event.location}</span>
+                        </div>
+                        <div class="event-description">${event.description}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Carregar página Stats
+        function loadStatsPage() {
+            // Configurar eventos dos filtros
+            const sortBy = document.getElementById('sortBy');
+            const orderBy = document.getElementById('orderBy');
+            const searchMC = document.getElementById('searchMC');
+            
+            const updateMCGrid = debounce(function() {
+                renderStatsPage();
+            }, 300);
+            
+            sortBy.addEventListener('change', updateMCGrid);
+            orderBy.addEventListener('change', updateMCGrid);
+            searchMC.addEventListener('input', updateMCGrid);
+            
+            // Configurar botões do admin
+            if (isAdmin) {
+                document.getElementById('addMC').addEventListener('click', function() {
+                    document.getElementById('mcModal').classList.remove('hidden');
+                    document.getElementById('modalTitle').textContent = 'Adicionar Novo MC';
+                    document.getElementById('mcForm').reset();
+                });
+                
+                document.getElementById('setWeeklyChampion').addEventListener('click', function() {
+                    showNotification('Selecione um MC clicando no botão "Tornar Campeão"', 'info');
+                });
+            }
+            
+            // Renderizar página
+            renderStatsPage();
+        }
+
+        // Renderizar página Stats
+        function renderStatsPage() {
+            const mcGrid = document.getElementById('mcGrid');
+            const sortBy = document.getElementById('sortBy').value;
+            const orderBy = document.getElementById('orderBy').value;
+            const searchMC = document.getElementById('searchMC').value.toLowerCase();
+            
+            // Filtrar MCs
+            let filteredMCs = mcData.filter(mc => 
+                mc.name.toLowerCase().includes(searchMC)
+            );
+            
+            // Ordenar MCs
+            filteredMCs.sort((a, b) => {
+                let aValue, bValue;
+                
+                switch(sortBy) {
+                    case 'vitorias': aValue = a.vitorias; bValue = b.vitorias; break;
+                    case 'derrotas': aValue = a.derrotas; bValue = b.derrotas; break;
+                    case 'twolalas': aValue = a.twolalas; bValue = b.twolalas; break;
+                    case 'participacoes': aValue = a.participacoes; bValue = b.participacoes; break;
+                    case 'winrate': aValue = a.winrate; bValue = b.winrate; break;
+                    default: aValue = a.vitorias; bValue = b.vitorias;
+                }
+                
+                return orderBy === 'desc' ? bValue - aValue : aValue - bValue;
+            });
+            
+            // Atualizar contadores
+            document.getElementById('totalMCs').textContent = filteredMCs.length;
+            
+            // Encontrar melhor winrate
+            if (filteredMCs.length > 0) {
+                const bestWinrate = Math.max(...filteredMCs.map(mc => mc.winrate));
+                document.getElementById('bestWinrate').textContent = bestWinrate.toFixed(1);
+            }
+            
+            // Renderizar MCs
+            if (mcGrid) {
+                mcGrid.innerHTML = filteredMCs.map(mc => `
+                    <div class="mc-card" data-id="${mc.id}">
+                        ${mc.isWeeklyChampion ? '<div class="champion-badge" title="Campeão Semanal"><i class="fas fa-crown"></i></div>' : ''}
+                        
+                        <div class="mc-card-header">
+                            <div class="mc-image">
+                                <img src="${mc.image}" alt="${mc.name}">
+                            </div>
+                            <div class="mc-name">${mc.name}</div>
+                        </div>
+                        
+                        <div class="mc-card-body">
+                            <div class="mc-stats">
+                                <div class="mc-stat">
+                                    <div class="stat-value">${mc.vitorias}</div>
+                                    <div class="stat-label">Vitórias</div>
+                                </div>
+                                <div class="mc-stat">
+                                    <div class="stat-value">${mc.derrotas}</div>
+                                    <div class="stat-label">Derrotas</div>
+                                </div>
+                                <div class="mc-stat">
+                                    <div class="stat-value">${mc.twolalas}</div>
+                                    <div class="stat-label">Twolalas</div>
+                                </div>
+                                <div class="mc-stat">
+                                    <div class="stat-value">${mc.participacoes}</div>
+                                    <div class="stat-label">Participações</div>
+                                </div>
+                            </div>
+                            
+                            <div class="winrate-bar">
+                                <div class="winrate-label">
+                                    <span>Winrate</span>
+                                    <span class="winrate-value">${mc.winrate}%</span>
+                                </div>
+                                <div class="winrate-bar-bg">
+                                    <div class="winrate-bar-fill" style="width: ${Math.min(mc.winrate, 100)}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        ${isAdmin ? `
+                        <div class="mc-card-footer">
+                            <div class="mc-actions">
+                                <button class="mc-action-btn edit-btn" onclick="editMC(${mc.id})" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="mc-action-btn delete-btn" onclick="deleteMC(${mc.id})" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            
+                            ${!mc.isWeeklyChampion ? `
+                            <button class="crown-btn" onclick="setWeeklyChampion(${mc.id})">
+                                <i class="fas fa-crown"></i>
+                                Tornar Campeão
+                            </button>
+                            ` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Carregar página Ranking
+        function loadRankingPage() {
+            // Configurar eventos dos filtros de temporada
+            const seasonBtns = document.querySelectorAll('.season-btn');
+            seasonBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    seasonBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderRankingPage();
+                });
+            });
+            
+            // Renderizar página
+            renderRankingPage();
+        }
+
+        // Renderizar página Ranking
+        function renderRankingPage() {
+            const rankingTableBody = document.getElementById('rankingTableBody');
+            const activeSeasonBtn = document.querySelector('.season-btn.active');
+            const season = activeSeasonBtn ? activeSeasonBtn.getAttribute('data-season') : 'current';
+            
+            // Em uma implementação real, os dados seriam filtrados por temporada
+            // Aqui usamos os mesmos dados para todas as temporadas
+            
+            // Ordenar por winrate (para ranking)
+            let rankedMCs = [...mcData].sort((a, b) => b.winrate - a.winrate);
+            
+            // Renderizar tabela de ranking
+            if (rankingTableBody) {
+                rankingTableBody.innerHTML = rankedMCs.map((mc, index) => `
+                    <tr>
+                        <td>
+                            <div class="ranking-position ${index === 0 ? 'position-1' : index === 1 ? 'position-2' : index === 2 ? 'position-3' : ''}">
+                                #${index + 1}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ranking-mc">
+                                <div class="ranking-mc-image">
+                                    <img src="${mc.image}" alt="${mc.name}">
+                                </div>
+                                <div>
+                                    <div class="mc-name">${mc.name}</div>
+                                    ${mc.isWeeklyChampion ? '<div class="weekly-badge"><i class="fas fa-crown"></i> Campeão Semanal</div>' : ''}
+                                </div>
+                            </div>
+                        </td>
+                        <td>${mc.vitorias}</td>
+                        <td>${mc.derrotas}</td>
+                        <td>${mc.twolalas}</td>
+                        <td>${mc.participacoes}</td>
+                        <td><strong>${mc.winrate}%</strong></td>
+                        ${isAdmin ? `
+                        <td>
+                            <button class="action-btn edit-btn" onclick="editMC(${mc.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete-btn" onclick="deleteMC(${mc.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        ` : ''}
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // Carregar página Beats
+        function loadBeatsPage() {
+            renderBeats();
+        }
+
+        // Renderizar beats
+        function renderBeats(filteredBeats = null) {
+            const beatsToRender = filteredBeats || beatsData;
+            
+            // Aplicar filtros adicionais
+            const style = document.getElementById('filterBeatStyle').value;
+            const search = document.getElementById('filterBeatSearch').value.toLowerCase();
+            
+            const finalBeats = beatsToRender.filter(beat => {
+                const matchesStyle = !style || beat.style === style;
+                const matchesSearch = !search || 
+                    beat.name.toLowerCase().includes(search) || 
+                    beat.producer.toLowerCase().includes(search);
+                
+                return matchesStyle && matchesSearch;
+            });
+            
+            // Atualizar estatísticas
+            updateBeatStats(finalBeats);
+            
+            // Renderizar de acordo com a visualização atual
+            if (currentView === 'grid') {
+                renderGridView(finalBeats);
+            } else {
+                renderListView(finalBeats);
+            }
+        }
+
+        // Atualizar estatísticas de beats
+        function updateBeatStats(beats) {
+            document.getElementById('totalBeats').textContent = beats.length;
+            
+            // Calcular total de batalhas
+            const totalBattles = beats.reduce((total, beat) => total + beat.battles.length, 0);
+            document.getElementById('totalBattles').textContent = totalBattles;
+            
+            document.getElementById('playingNow').textContent = isPlaying ? '1' : '0';
+        }
+
+        // Renderizar visualização em grade
+        function renderGridView(beats) {
+            const gridView = document.getElementById('beatsGridView');
+            const listView = document.getElementById('beatsListView');
+            
+            // Mostrar grade e esconder lista
+            gridView.classList.remove('hidden');
+            listView.classList.add('hidden');
+            
+            // Renderizar beats em grade
+            gridView.innerHTML = beats.map(beat => `
+                <div class="beat-card" data-id="${beat.id}" onclick="showBeatDetails(${beat.id})">
+                    ${currentAudioElement && currentAudioElement.dataset.id == beat.id ? '<div class="beat-playing-indicator"></div>' : ''}
+                    
+                    <div class="beat-card-header">
+                        <div class="beat-style-tag">${getStyleIcon(beat.style)} ${beat.style.toUpperCase()}</div>
+                        <div class="beat-name">${beat.name}</div>
+                        <div class="beat-producer">
+                            <i class="fas fa-user"></i>
+                            <span>${beat.producer}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="beat-player-custom">
+                        <div class="player-container" onclick="event.stopPropagation()">
+                            <div class="player-controls">
+                                <button class="play-pause-btn ${currentAudioElement && currentAudioElement.dataset.id == beat.id && isPlaying ? 'playing' : ''}" 
+                                        data-id="${beat.id}"
+                                        onclick="event.stopPropagation(); togglePlay('${beat.id}', '${beat.url}', '${beat.name}', '${beat.producer}')">
+                                    <i class="fas ${currentAudioElement && currentAudioElement.dataset.id == beat.id && isPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                                </button>
+                                
+                                <div class="player-info">
+                                    <div class="player-time">
+                                        <span class="current-time" id="currentTime-${beat.id}">0:00</span>
+                                        <span class="duration" id="duration-${beat.id}">0:00</span>
+                                    </div>
+                                    <div class="progress-container" onclick="event.stopPropagation(); seekAudio(event, '${beat.id}')">
+                                        <div class="progress-bar" id="progressBar-${beat.id}" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="beat-info-details">
+                            <div class="beat-info-row">
+                                <span class="beat-info-label"><i class="fas fa-fist-raised"></i> Batalhas:</span>
+                                <span class="beat-info-value">${beat.battles.length}</span>
+                            </div>
+                            <div class="beat-info-row">
+                                <span class="beat-info-label"><i class="fas fa-download"></i> Downloads:</span>
+                                <span class="beat-info-value">${beat.downloads || '0'}</span>
+                            </div>
+                            <div class="beat-info-row">
+                                <span class="beat-info-label"><i class="fas fa-play-circle"></i> Plays:</span>
+                                <span class="beat-info-value">${beat.plays || '0'}</span>
+                            </div>
+                            <div class="beat-info-row">
+                                <span class="beat-info-label"><i class="fas fa-tachometer-alt"></i> BPM:</span>
+                                <span class="beat-info-value">${beat.bpm || '120'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="beat-card-footer" onclick="event.stopPropagation()">
+                        <div class="beat-downloads">
+                            <i class="fas fa-download"></i>
+                            <span>${beat.downloads || '0'} downloads</span>
+                        </div>
+                        
+                        ${isAdmin ? `
+                        <div class="beat-actions">
+                            <button class="beat-action-btn" onclick="event.stopPropagation(); downloadBeat('${beat.id}')" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="beat-action-btn" onclick="event.stopPropagation(); editBeat(${beat.id})" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="beat-action-btn" onclick="event.stopPropagation(); deleteBeat(${beat.id})" title="Excluir">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        ` : `
+                        <button class="beat-action-btn" onclick="event.stopPropagation(); downloadBeat('${beat.id}')" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        `}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Renderizar visualização em lista
+        function renderListView(beats) {
+            const gridView = document.getElementById('beatsGridView');
+            const listView = document.getElementById('beatsListView');
+            
+            // Mostrar lista e esconder grade
+            gridView.classList.add('hidden');
+            listView.classList.remove('hidden');
+            
+            // Renderizar beats em lista
+            listView.innerHTML = beats.map(beat => `
+                <div class="beat-list-item" data-id="${beat.id}" onclick="showBeatDetails(${beat.id})">
+                    <div class="beat-list-info">
+                        <div class="beat-style-tag">${getStyleIcon(beat.style)} ${beat.style.toUpperCase()}</div>
+                        <div>
+                            <div class="beat-name">${beat.name}</div>
+                            <div class="beat-producer">
+                                <i class="fas fa-user"></i>
+                                <span>${beat.producer}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="beat-list-player" onclick="event.stopPropagation()">
+                        <div class="player-container">
+                            <div class="player-controls">
+                                <button class="play-pause-btn ${currentAudioElement && currentAudioElement.dataset.id == beat.id && isPlaying ? 'playing' : ''}" 
+                                        data-id="${beat.id}"
+                                        onclick="event.stopPropagation(); togglePlay('${beat.id}', '${beat.url}', '${beat.name}', '${beat.producer}')">
+                                    <i class="fas ${currentAudioElement && currentAudioElement.dataset.id == beat.id && isPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                                </button>
+                                
+                                <div class="player-info">
+                                    <div class="player-time">
+                                        <span class="current-time" id="currentTime-${beat.id}">0:00</span>
+                                        <span class="duration" id="duration-${beat.id}">0:00</span>
+                                    </div>
+                                    <div class="progress-container" onclick="event.stopPropagation(); seekAudio(event, '${beat.id}')">
+                                        <div class="progress-bar" id="progressBar-${beat.id}" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="beat-list-actions-container" onclick="event.stopPropagation()">
+                        <button class="beat-list-download-btn" onclick="downloadBeat('${beat.id}')" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        ${isAdmin ? `
+                        <button class="beat-list-download-btn" onclick="editBeat(${beat.id})" title="Editar" style="margin-top: 0.5rem;">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="beat-list-download-btn" onclick="deleteBeat(${beat.id})" title="Excluir" style="margin-top: 0.5rem;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="beat-list-stats">
+                        <div class="beat-list-stat">
+                            <i class="fas fa-fist-raised"></i>
+                            <span>${beat.battles.length} batalhas</span>
+                        </div>
+                        <div class="beat-list-stat">
+                            <i class="fas fa-play-circle"></i>
+                            <span>${beat.plays || '0'} plays</span>
+                        </div>
+                        <div class="beat-list-stat">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>${beat.bpm || '120'} BPM</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filtrar beats
+        function filterBeats() {
+            renderBeats();
+        }
+
+        // Preencher selects com MCs
+        function populateMCSelects() {
+            const mcSelects = [
+                'searchMCA', 'searchMCB', 'battleMCA', 'battleMCB'
+            ];
+            
+            mcSelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    // Salvar seleção atual
+                    const currentValue = select.value;
+                    
+                    // Limpar opções (mantendo a primeira)
+                    select.innerHTML = '<option value="">Selecione um MC</option>';
+                    
+                    // Adicionar opções dos MCs
+                    mcData.forEach(mc => {
+                        const option = document.createElement('option');
+                        option.value = mc.name;
+                        option.textContent = mc.name;
+                        select.appendChild(option);
+                    });
+                    
+                    // Restaurar seleção anterior se existir
+                    if (currentValue) {
+                        select.value = currentValue;
+                    }
+                }
+            });
+        }
+
+        // Mostrar detalhes do beat
+        function showBeatDetails(beatId) {
+            const beat = beatsData.find(b => b.id == beatId);
+            if (!beat) return;
+            
+            const modal = document.getElementById('beatDetailsModal');
+            const content = document.getElementById('beatDetailsContent');
+            
+            // Renderizar conteúdo do modal
+            content.innerHTML = `
+                <div class="beat-details-header">
+                    <div class="beat-details-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="beat-details-title">
+                        <h3>${beat.name}</h3>
+                        <p>Produtor: <strong>${beat.producer}</strong></p>
+                        <div class="beat-style-tag">${getStyleIcon(beat.style)} ${beat.style.toUpperCase()}</div>
+                    </div>
+                </div>
+                
+                <div class="beat-details-player">
+                </div>
+                
+                <div class="beat-info-details">
+                    <div class="beat-info-row">
+                        <span class="beat-info-label"><i class="fas fa-tachometer-alt"></i> BPM:</span>
+                        <span class="beat-info-value">${beat.bpm || '120'}</span>
+                    </div>
+                    <div class="beat-info-row">
+                        <span class="beat-info-label"><i class="fas fa-download"></i> Downloads:</span>
+                        <span class="beat-info-value">${beat.downloads || '0'}</span>
+                    </div>
+                    <div class="beat-info-row">
+                        <span class="beat-info-label"><i class="fas fa-play-circle"></i> Plays:</span>
+                        <span class="beat-info-value">${beat.plays || '0'}</span>
+                    </div>
+                </div>
+                
+                <div class="battles-history">
+                    <h4><i class="fas fa-fist-raised"></i> Histórico de Batalhas (${beat.battles.length})</h4>
+                    
+                    ${beat.battles.length > 0 ? `
+                    <div class="battles-list">
+                        ${beat.battles.map(battle => `
+                            <div class="battle-item">
+                                <div class="battle-header">
+                                    <div class="battle-mcs">
+                                        <div class="battle-mc ${battle.vencedor == battle.mca.id ? 'winner' : ''}">
+                                            <div class="battle-mc-avatar">
+                                                <img src="${battle.mca.image}" alt="${battle.mca.name}">
+                                            </div>
+                                            <span>${battle.mca.name} ${battle.vencedor == battle.mca.id ? '👑' : ''}</span>
+                                        </div>
+                                        <span class="vs">VS</span>
+                                        <div class="battle-mc ${battle.vencedor == battle.mcb.id ? 'winner' : ''}">
+                                            <div class="battle-mc-avatar">
+                                                <img src="${battle.mcb.image}" alt="${battle.mcb.name}">
+                                            </div>
+                                            <span>${battle.mcb.name} ${battle.vencedor == battle.mcb.id ? '👑' : ''}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="battle-info">
+                                    <div class="battle-info-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>${battle.edicao}</span>
+                                    </div>
+                                    <div class="battle-info-item">
+                                        <i class="fas fa-layer-group"></i>
+                                        <span>Round ${battle.round}</span>
+                                    </div>
+                                    <div class="battle-info-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>${formatDate(battle.data)}</span>
+                                    </div>
+                                </div>
+                                
+                                ${isAdmin ? `
+                                <div style="margin-top: 1rem; text-align: right;">
+                                    <button class="delete-btn" onclick="removeBattleFromBeat(${beat.id}, ${battle.id})" style="font-size: 0.8rem; padding: 0.3rem 0.6rem;">
+                                        <i class="fas fa-trash"></i> Remover
+                                    </button>
+                                </div>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                    ` : `
+                    <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                        <i class="fas fa-fist-raised" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p>Este beat ainda não foi usado em batalhas.</p>
+                    </div>
+                    `}
+                    
+                    ${isAdmin ? `
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button id="addBattleToBeat" class="add-battle-btn">
+                            <i class="fas fa-plus"></i> Adicionar Batalha
+                        </button>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            // Mostrar modal
+            modal.classList.remove('hidden');
+            
+            // Configurar evento para adicionar batalha (se admin)
+            if (isAdmin) {
+                document.getElementById('addBattleToBeat').addEventListener('click', function() {
+                    openAddBattleModal(beat.id);
+                });
+            }
+        }
+
+        // Abrir modal para adicionar batalha ao beat
+        function openAddBattleModal(beatId) {
+            const modal = document.getElementById('addBattleModal');
+            
+            // Preencher selects de MCs
+            populateMCSelects();
+            
+            // Preencher select de vencedor
+            const vencedorSelect = document.getElementById('battleVencedor');
+            vencedorSelect.innerHTML = '<option value="">Sem vencedor</option>';
+            
+            // Adicionar MCs como opções de vencedor
+            mcData.forEach(mc => {
+                const option = document.createElement('option');
+                option.value = mc.name;
+                option.textContent = mc.name;
+                vencedorSelect.appendChild(option);
+            });
+            
+            // Configurar evento do formulário
+            const form = document.getElementById('addBattleForm');
+            form.dataset.beatId = beatId;
+            
+            // Mostrar modal
+            modal.classList.remove('hidden');
+        }
+
+        // Adicionar batalha ao beat
+        function addBattleToCurrentBeat() {
+            const form = document.getElementById('addBattleForm');
+            const beatId = form.dataset.beatId;
+            
+            const beat = beatsData.find(b => b.id == beatId);
+            if (!beat) return;
+            
+            const edicao = document.getElementById('battleEdicao').value;
+            const round = document.getElementById('battleRound').value;
+            const mcaName = document.getElementById('battleMCA').value;
+            const mcbName = document.getElementById('battleMCB').value;
+            const vencedorName = document.getElementById('battleVencedor').value;
+            const data = document.getElementById('battleData').value;
+            
+            // Encontrar MCs nos dados
+            const mca = mcData.find(mc => mc.name === mcaName);
+            const mcb = mcData.find(mc => mc.name === mcbName);
+            const vencedor = vencedorName ? mcData.find(mc => mc.name === vencedorName) : null;
+            
+            if (!mca || !mcb) {
+                showNotification('Selecione MCs válidos para a batalha.', 'error');
+                return;
+            }
+            
+            // Criar nova batalha
+            const newBattle = {
+                id: Date.now(), // ID único
+                edicao: edicao,
+                round: round,
+                mca: { id: mca.id, name: mca.name, image: mca.image },
+                mcb: { id: mcb.id, name: mcb.name, image: mcb.image },
+                vencedor: vencedor ? vencedor.id : null,
+                data: data || new Date().toISOString().split('T')[0]
+            };
+            
+            // Adicionar batalha ao beat
+            beat.battles.push(newBattle);
+            
+            // Fechar modais
+            document.getElementById('addBattleModal').classList.add('hidden');
+            document.getElementById('beatDetailsModal').classList.add('hidden');
+            
+            // Mostrar notificação
+            showNotification('Batalha adicionada ao beat com sucesso!', 'success');
+            
+            // Atualizar visualização
+            renderBeats();
+            
+            // Reabrir detalhes do beat atualizado
+            setTimeout(() => {
+                showBeatDetails(beatId);
+            }, 300);
+        }
+
+        // Remover batalha do beat
+        function removeBattleFromBeat(beatId, battleId) {
+            if (!confirm('Tem certeza que deseja remover esta batalha do beat?')) return;
+            
+            const beat = beatsData.find(b => b.id == beatId);
+            if (!beat) return;
+            
+            const battleIndex = beat.battles.findIndex(b => b.id == battleId);
+            if (battleIndex !== -1) {
+                beat.battles.splice(battleIndex, 1);
+                showNotification('Batalha removida do beat!', 'success');
+                
+                // Atualizar visualização
+                renderBeats();
+                
+                // Reabrir detalhes do beat atualizado
+                setTimeout(() => {
+                    showBeatDetails(beatId);
+                }, 300);
+            }
+        }
+
+        // Abrir modal para adicionar/editar beat
+        function openBeatModal(beatId = null) {
+            const modal = document.getElementById('beatModal');
+            const title = document.getElementById('beatModalTitle');
+            const form = document.getElementById('beatForm');
+            
+            if (beatId) {
+                // Modo edição
+                const beat = beatsData.find(b => b.id == beatId);
+                if (!beat) return;
+                
+                title.textContent = 'Editar Beat';
+                document.getElementById('beatName').value = beat.name;
+                document.getElementById('beatProducer').value = beat.producer;
+                document.getElementById('beatStyle').value = beat.style;
+                document.getElementById('beatBPM').value = beat.bpm || 120;
+                document.getElementById('beatURL').value = beat.url;
+                
+                form.dataset.beatId = beatId;
+            } else {
+                // Modo adição
+                title.textContent = 'Adicionar Novo Beat';
+                form.reset();
+                delete form.dataset.beatId;
+            }
+            
+            modal.classList.remove('hidden');
+        }
+
+        // Salvar beat (adicionar ou editar)
+        function saveBeat() {
+            const form = document.getElementById('beatForm');
+            const beatId = form.dataset.beatId;
+            
+            const beatData = {
+                name: document.getElementById('beatName').value,
+                producer: document.getElementById('beatProducer').value,
+                style: document.getElementById('beatStyle').value,
+                bpm: parseInt(document.getElementById('beatBPM').value) || 120,
+                url: document.getElementById('beatURL').value
+            };
+            
+            if (beatId) {
+                // Editar beat existente
+                const beat = beatsData.find(b => b.id == beatId);
+                if (beat) {
+                    Object.assign(beat, beatData);
+                    showNotification('Beat atualizado com sucesso!', 'success');
+                }
+            } else {
+                // Adicionar novo beat
+                const newBeat = {
+                    id: Date.now(),
+                    ...beatData,
+                    battles: [],
+                    downloads: 0,
+                    plays: 0
+                };
+                beatsData.push(newBeat);
+                showNotification('Beat adicionado com sucesso!', 'success');
+            }
+            
+            // Fechar modal e atualizar visualização
+            document.getElementById('beatModal').classList.add('hidden');
+            renderBeats();
+        }
+
+        // Carregar página Mídia
+        function loadMidiaPage() {
+            const videosGrid = document.getElementById('videosGrid');
+            const photosGrid = document.getElementById('photosGrid');
+            
+            // Renderizar vídeos
+            if (videosGrid) {
+                videosGrid.innerHTML = videosData.map(video => `
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/${getYouTubeID(video.url)}/hqdefault.jpg" alt="${video.title}">
+                            <div class="video-play-btn" onclick="playVideo('${video.url}')">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-card-info">
+                            <h4>${video.title}</h4>
+                            <p>${video.description}</p>
+                        </div>
+                        ${isAdmin ? `
+                        <div class="video-card-footer">
+                            <button class="action-btn edit-btn" onclick="editVideo(${video.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete-btn" onclick="deleteVideo(${video.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            ${!video.featured ? `
+                            <button class="action-btn featured-btn" onclick="setFeaturedVideo(${video.id})">
+                                <i class="fas fa-home"></i> Colocar na Inicial
+                            </button>
+                            ` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+            }
+            
+            // Renderizar fotos
+            if (photosGrid) {
+                photosGrid.innerHTML = photosData.map((photo, index) => `
+                    <div class="photo-card">
+                        <img src="${photo}" alt="Foto da batalha ${index + 1}">
+                    </div>
+                `).join('');
+            }
+            
+            // Configurar botões do admin
+            if (isAdmin) {
+                document.getElementById('addVideo').addEventListener('click', function() {
+                    document.getElementById('videoModal').classList.remove('hidden');
+                });
+            }
+        }
+
+        // Funções do Player Customizado
+        function togglePlay(beatId, audioUrl, beatName, producer) {
+            const button = document.querySelector(`.play-pause-btn[data-id="${beatId}"]`);
+            const icon = button.querySelector('i');
+            
+            // Se já está tocando este beat, pausar
+            if (currentAudioElement && currentAudioElement.dataset.id === beatId && isPlaying) {
+                pauseAudio();
+                return;
+            }
+            
+            // Se está tocando outro beat, parar ele
+            if (currentAudio && currentAudioElement && currentAudioElement.dataset.id !== beatId) {
+                pauseAudio();
+            }
+            
+            // Se não está tocando ou é outro beat, começar a tocar
+            if (!currentAudio || currentAudioElement.dataset.id !== beatId) {
+                // Remover classe de playing de todos os cards
+                document.querySelectorAll('.beat-card').forEach(card => {
+                    card.classList.remove('beat-playing');
+                });
+                
+                // Adicionar classe de playing ao card atual
+                const beatCard = document.querySelector(`.beat-card[data-id="${beatId}"]`);
+                if (beatCard) beatCard.classList.add('beat-playing');
+                
+                // Criar ou reusar elemento de áudio
+                if (!currentAudio || currentAudioElement.dataset.id !== beatId) {
+                    if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio = null;
+                    }
+                    
+                    currentAudio = new Audio(audioUrl);
+                    currentAudioElement = document.createElement('div');
+                    currentAudioElement.dataset.id = beatId;
+                    
+                    // Configurar eventos do áudio
+                    currentAudio.addEventListener('timeupdate', function() {
+                        updateProgress(beatId);
+                    });
+                    
+                    currentAudio.addEventListener('loadedmetadata', function() {
+                        updateDuration(beatId);
+                    });
+                    
+                    currentAudio.addEventListener('ended', function() {
+                        resetPlayer(beatId);
+                    });
+                    
+                    currentAudio.volume = 0.7;
+                    updateVolumeDisplay(beatId);
+                }
+                
+                // Atualizar botões
+                document.querySelectorAll('.play-pause-btn').forEach(btn => {
+                    btn.classList.remove('playing');
+                    const btnIcon = btn.querySelector('i');
+                    if (btnIcon) btnIcon.className = 'fas fa-play';
+                });
+                
+                // Tocar áudio
+                currentAudio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        button.classList.add('playing');
+                        icon.className = 'fas fa-pause';
+                        updatePlayingNowCount();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao tocar áudio:', error);
+                        showNotification('Erro ao reproduzir o beat. Verifique a URL do áudio.', 'error');
+                    });
+            } else {
+                // Continuar tocando o mesmo áudio
+                currentAudio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        button.classList.add('playing');
+                        icon.className = 'fas fa-pause';
+                        updatePlayingNowCount();
+                    });
+            }
+        }
+
+        function pauseAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                isPlaying = false;
+                
+                // Atualizar botões
+                document.querySelectorAll('.play-pause-btn').forEach(btn => {
+                    btn.classList.remove('playing');
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.className = 'fas fa-play';
+                });
+                
+                // Remover classe de playing de todos os cards
+                document.querySelectorAll('.beat-card').forEach(card => {
+                    card.classList.remove('beat-playing');
+                });
+                
+                updatePlayingNowCount();
+            }
+        }
+
+        function updateProgress(beatId) {
+            if (!currentAudio) return;
+            
+            const progressBar = document.getElementById(`progressBar-${beatId}`);
+            const currentTime = document.getElementById(`currentTime-${beatId}`);
+            
+            if (progressBar && currentTime) {
+                const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
+                progressBar.style.width = `${percent}%`;
+                
+                // Formatar tempo atual
+                const minutes = Math.floor(currentAudio.currentTime / 60);
+                const seconds = Math.floor(currentAudio.currentTime % 60);
+                currentTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function updateDuration(beatId) {
+            const duration = document.getElementById(`duration-${beatId}`);
+            if (duration && currentAudio) {
+                const minutes = Math.floor(currentAudio.duration / 60);
+                const seconds = Math.floor(currentAudio.duration % 60);
+                duration.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function seekAudio(event, beatId) {
+            if (!currentAudio || currentAudioElement.dataset.id !== beatId) return;
+            
+            const progressContainer = event.currentTarget;
+            const rect = progressContainer.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const width = rect.width;
+            const percent = (x / width);
+            
+            currentAudio.currentTime = percent * currentAudio.duration;
+        }
+
+        function setVolume(event, beatId) {
+            if (!currentAudio) return;
+            
+            const volumeSlider = event.currentTarget;
+            const rect = volumeSlider.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const width = rect.width;
+            let volume = x / width;
+            
+            // Limitar volume entre 0 e 1
+            volume = Math.max(0, Math.min(1, volume));
+            
+            currentAudio.volume = volume;
+            updateVolumeDisplay(beatId);
+        }
+
+        function updateVolumeDisplay(beatId) {
+            if (!currentAudio) return;
+            
+            const volumeLevel = document.getElementById(`volumeLevel-${beatId}`);
+            if (volumeLevel) {
+                volumeLevel.style.width = `${currentAudio.volume * 100}%`;
+            }
+        }
+
+        function resetPlayer(beatId) {
+            isPlaying = false;
+            
+            const button = document.querySelector(`.play-pause-btn[data-id="${beatId}"]`);
+            if (button) {
+                button.classList.remove('playing');
+                const icon = button.querySelector('i');
+                if (icon) icon.className = 'fas fa-play';
+            }
+            
+            const progressBar = document.getElementById(`progressBar-${beatId}`);
+            if (progressBar) {
+                progressBar.style.width = '0%';
+            }
+            
+            const currentTime = document.getElementById(`currentTime-${beatId}`);
+            if (currentTime) {
+                currentTime.textContent = '0:00';
+            }
+            
+            // Remover classe de playing do card
+            const beatCard = document.querySelector(`.beat-card[data-id="${beatId}"]`);
+            if (beatCard) {
+                beatCard.classList.remove('beat-playing');
+            }
+            
+            updatePlayingNowCount();
+        }
+
+        function updatePlayingNowCount() {
+            const playingNow = document.getElementById('playingNow');
+            if (playingNow) {
+                playingNow.textContent = isPlaying ? '1' : '0';
+            }
+        }
+
+        // Funções administrativas para MCs
+        window.editMC = function(id) {
+            const mc = mcData.find(mc => mc.id === id);
+            if (!mc) return;
+            
+            // Preencher formulário com dados do MC
+            document.getElementById('mcName').value = mc.name;
+            document.getElementById('mcImage').value = mc.image;
+            document.getElementById('mcVitorias').value = mc.vitorias;
+            document.getElementById('mcDerrotas').value = mc.derrotas;
+            document.getElementById('mcTwolalas').value = mc.twolalas;
+            document.getElementById('mcParticipacoes').value = mc.participacoes;
+            
+            // Mostrar modal
+            document.getElementById('mcModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = 'Editar MC';
+            
+            // Alterar comportamento do formulário para edição
+            const form = document.getElementById('mcForm');
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                
+                // Atualizar dados do MC
+                mc.name = document.getElementById('mcName').value;
+                mc.image = document.getElementById('mcImage').value;
+                mc.vitorias = parseInt(document.getElementById('mcVitorias').value);
+                mc.derrotas = parseInt(document.getElementById('mcDerrotas').value);
+                mc.twolalas = parseInt(document.getElementById('mcTwolalas').value);
+                mc.participacoes = parseInt(document.getElementById('mcParticipacoes').value);
+                mc.winrate = mc.participacoes > 0 ? parseFloat(((mc.vitorias / mc.participacoes) * 100).toFixed(1)) : 0;
+                
+                showNotification('MC atualizado com sucesso!', 'success');
+                document.getElementById('mcModal').classList.add('hidden');
+                
+                // Recarregar páginas relevantes
+                if (currentPage === 'stats') renderStatsPage();
+                if (currentPage === 'ranking') renderRankingPage();
+                if (currentPage === 'home' && mc.isWeeklyChampion) loadHomePage();
+            };
+        };
+
+        window.deleteMC = function(id) {
+            if (confirm('Tem certeza que deseja excluir este MC?')) {
+                const index = mcData.findIndex(mc => mc.id === id);
+                if (index !== -1) {
+                    mcData.splice(index, 1);
+                    showNotification('MC excluído com sucesso!', 'success');
+                    
+                    // Recarregar páginas relevantes
+                    if (currentPage === 'stats') renderStatsPage();
+                    if (currentPage === 'ranking') renderRankingPage();
+                }
+            }
+        };
+
+        window.setWeeklyChampion = function(id) {
+            const mc = mcData.find(mc => mc.id === id);
+            if (!mc) return;
+            
+            // Remover campeão semanal anterior
+            mcData.forEach(mc => mc.isWeeklyChampion = false);
+            
+            // Definir novo campeão semanal
+            mc.isWeeklyChampion = true;
+            
+            showNotification(`${mc.name} agora é o campeão semanal!`, 'success');
+            
+            // Recarregar páginas relevantes
+            if (currentPage === 'stats') renderStatsPage();
+            if (currentPage === 'home') loadHomePage();
+        };
+
+        // Funções administrativas para Beats
+        window.editBeat = function(id) {
+            openBeatModal(id);
+        };
+
+        window.deleteBeat = function(id) {
+            if (confirm('Tem certeza que deseja excluir este beat?')) {
+                const index = beatsData.findIndex(beat => beat.id === id);
+                if (index !== -1) {
+                    beatsData.splice(index, 1);
+                    showNotification('Beat excluído com sucesso!', 'success');
+                    
+                    // Recarregar página de beats
+                    renderBeats();
+                }
+            }
+        };
+
+        window.downloadBeat = function(id) {
+            const beat = beatsData.find(b => b.id == id);
+            if (beat) {
+                // Incrementar contador de downloads
+                if (!beat.downloads) beat.downloads = 0;
+                beat.downloads++;
+                
+                // Simular download
+                showNotification(`Download de "${beat.name}" iniciado!`, 'success');
+                
+                // Atualizar página se estiver na página de beats
+                if (currentPage === 'beats') {
+                    renderBeats();
+                }
+            }
+        };
+
+        // Funções administrativas para Vídeos
+        window.editVideo = function(id) {
+            const video = videosData.find(video => video.id === id);
+            if (!video) return;
+            
+            // Preencher formulário com dados do vídeo
+            document.getElementById('videoTitle').value = video.title;
+            document.getElementById('videoURL').value = video.url;
+            document.getElementById('videoDescription').value = video.description || '';
+            document.getElementById('videoFeatured').checked = video.featured || false;
+            
+            // Mostrar modal
+            document.getElementById('videoModal').classList.remove('hidden');
+            
+            // Alterar comportamento do formulário para edição
+            const form = document.getElementById('videoForm');
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                
+                // Atualizar dados do vídeo
+                video.title = document.getElementById('videoTitle').value;
+                video.url = document.getElementById('videoURL').value;
+                video.description = document.getElementById('videoDescription').value;
+                video.featured = document.getElementById('videoFeatured').checked;
+                
+                // Se este vídeo for marcado como destacado, remover destaque dos outros
+                if (video.featured) {
+                    videosData.forEach(v => {
+                        if (v.id !== id) v.featured = false;
+                    });
+                }
+                
+                showNotification('Vídeo atualizado com sucesso!', 'success');
+                document.getElementById('videoModal').classList.add('hidden');
+                
+                // Recarregar páginas relevantes
+                if (currentPage === 'midia') loadMidiaPage();
+                if (currentPage === 'home') loadHomePage();
+            };
+        };
+
+        window.deleteVideo = function(id) {
+            if (confirm('Tem certeza que deseja excluir este vídeo?')) {
+                const index = videosData.findIndex(video => video.id === id);
+                if (index !== -1) {
+                    videosData.splice(index, 1);
+                    showNotification('Vídeo excluído com sucesso!', 'success');
+                    
+                    // Recarregar página de mídia
+                    if (currentPage === 'midia') loadMidiaPage();
+                }
+            }
+        };
+
+        window.setFeaturedVideo = function(id) {
+            const video = videosData.find(video => video.id === id);
+            if (!video) return;
+            
+            // Remover destaque de todos os vídeos
+            videosData.forEach(v => v.featured = false);
+            
+            // Definir novo vídeo destacado
+            video.featured = true;
+            
+            showNotification(`${video.title} agora está na tela inicial!`, 'success');
+            
+            // Recarregar páginas relevantes
+            if (currentPage === 'midia') loadMidiaPage();
+            if (currentPage === 'home') loadHomePage();
+        };
+
+        // Funções auxiliares
+        function getStyleIcon(style) {
+            const icons = {
+                'trap': '',
+                'drill': '',
+                'boombap': '',
+                'rnb': '',
+                'funk': ''
+            };
+            return icons[style] || '';
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return 'Data não especificada';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR');
+        }
+
+        function getYouTubeID(url) {
+            // Extrair ID do vídeo do YouTube a partir da URL
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : 'dQw4w9WgXcQ';
+        }
+
+        window.playVideo = function(url) {
+            // Em uma implementação real, isso abriria um modal com o vídeo
+            window.open(url, '_blank');
+        };
+
+        function showNotification(message, type) {
+            // Criar notificação
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Estilos da notificação
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background-color: ${type === 'success' ? '#00cc66' : type === 'error' ? '#ff3333' : '#3399ff'};
+                color: white;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                z-index: 10000;
+                animation: slideInLeft 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remover notificação após 3 segundos
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Adicionar estilos CSS para fadeOut
+        const fadeOutStyle = document.createElement('style');
+        fadeOutStyle.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(fadeOutStyle);
+    </script>
 </body>
 </html>
